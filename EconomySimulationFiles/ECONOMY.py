@@ -2,9 +2,16 @@
 # A realistic simulation of a city - Not achieved
 
 # The average score for the game is equal to playing it with no tax tampering whatsoever
-# This is equal to:
+# This is equal to:TotalScore = 90348800000
+# ValueOfTown = 1129360000
 # Your success in the simulation is based on your total score as well as your final year score
 # Do better in these than in a simulation with no changes added, and you will be a winner
+
+# The only variable that needs changing should be the OS directory. Usually a subfolder exists
+# below the economy folder but my understanding of GitHub prevents me from doing this.
+
+# Any questions should be directed to my GitHub project. Constructive criticism is appreciated, especially from
+# a data analysis standpoint as that is the direction this project is going towards
 
 import os
 import sys
@@ -141,6 +148,9 @@ while DataInputted < 2:
     TOTLSAL = "Salaries paid in final year " + str(TotalSalariesPaid)
     TOTALWEL = "Welfare paid in final year " + str(TotalWelfare)
     TAXINC = "Tax changes " + str(Choice1)
+
+# The save to file functions are in progress, though it's possible to print all to a file, comparative pairs
+# direct to an Excel file would be easiest to recursively compare.
 
     Name = "Scores" + AmountWritten + Mode + ".txt"
     os.chdir('C:\\Users\\kbudz\\PycharmProjects\\Economy\\EconomySimulationFiles\\EconomyLogFiles')
