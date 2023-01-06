@@ -15,7 +15,7 @@ import random
 from math import sin
 from math import log
 
-WORKING_NAME = "ShoreLands"
+WORKING_NAME = "Simulacra" # One simulation should be based on the economy of Greece before during and after the Troika program
 POPULATION = 5000
 WEEKLY_UPDATES = False
 YEARLY_UPDATES = False
@@ -33,7 +33,7 @@ PACE = input("Slow or Fast or rapid Pace"\
 def CRIME(CRIME_RATE):
     if SCOPE == YEAR:
         CRIME = 520
-    if SCOPE == WEEK:
+    elif SCOPE == WEEK:
         CRIME = 52 # criminal events a year, converitble to weeks if needed
 def datainputter(IMMIGRATION_PERCENT,MIGRATION_PERCENT,TAXES,POPULATION,WORK_EFFICIENCY,
             PUBLIC_SPENDING,MIGRATION,IMMIGRATION,WORKING_AGE_POPULATION,UNEMPLOYED_POPULATION,
@@ -42,8 +42,13 @@ def datainputter(IMMIGRATION_PERCENT,MIGRATION_PERCENT,TAXES,POPULATION,WORK_EFF
     YEAR=1960
     while YEAR<2020 or KeyboardInterrupt:
         YEAR+=1
-        LITERACY = 0.8 * ((sin(60)*GDP))*(log(30)*RICH_POPULATION) + (YEAR*0.025)
-        CRIME = 
+        LITERACY = 0.8 #Should be impacted positively by gdp, public spending, employment, rich pop,
+                       #Welfare, high taxes.Affects work efficeincy positively as well as class movement,
+                       #Mortality goes down, values which impact it positvely also are impacted positvely
+                       #By it. Negatively impacted by crime, mortality, migration of skilled workers(not yet
+                       # implemented) Unemployment decreases it directly. 
+        CRIME = (1520 - (LITERACY*125) )
+        #1000 can represent the base weighted value figure of variable importance. Anything else less important goes below this.
         IMMIGRATION_PERCENT = 1000 * LITERACY + 1000 
         MIGRATION_PERCENT = 1000 * CRIME
         IMMIGRATION = 1000 * IMMIGRATION_PERCENT
