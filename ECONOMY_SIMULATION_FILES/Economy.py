@@ -1,8 +1,5 @@
 """
 Provides an in depth simulation of an economy akin to the UK
-"""
-
-"""
 Goals for this program:
 A realistic simulation of a city - Not achieved
 The average score for the game is equal to playing it with no tax tampering whatsoever
@@ -14,21 +11,10 @@ below the economy folder but my understanding of GitHub prevents me from doing t
 Any questions should be directed to my GitHub project. Constructive criticism is appreciated
 especially from a data analysis standpoint as that is the direction this project is going towards
 """
-
 import os
 import random
-os.chdir("/workspaces/Economy-Program/EconomySimulationFiles")
-DATA_INPUTTED = 0
+DATA_INPUTTED=0
 MODE = str(input("Input mode "))
-with open("File_Number.txt", "r+", encoding="utf-8") as fp:
-    Content = fp.readlines()
-    AMOUNT_WRITTEN = int(Content[0])
-    AMOUNT_WRITTEN += 1
-    fp.close()
-with open("FileNumber.txt", "w+", encoding="utf-8") as fp:
-    fp.write(str(AMOUNT_WRITTEN))
-    fp.close()
-AMOUNT_WRITTEN = str(AMOUNT_WRITTEN)
 while DATA_INPUTTED < 2:
     YEAR = 1960
     CHOICE = 0
@@ -50,8 +36,8 @@ while DATA_INPUTTED < 2:
     TOTAL_SALARIES_PAID = WORKING_AGE_POPULATION * 400
     TOTAL_WELFARE = UNEMPLOYED_POPULATION * 150
     TOTAL_SCORE = 0
-    VALUE_OF_TOWN = (WORKING_POPULATION_VALUE + RICH_POPULATION_VALUE - TOTAL_WELFARE 
-    - TOTAL_SALARIES_PAID)
+    VALUE_OF_TOWN = (WORKING_POPULATION_VALUE + RICH_POPULATION_VALUE - TOTAL_WELFARE
+    -TOTAL_SALARIES_PAID)
     while YEAR < 2040:
         POPULATION = POPULATION-MIGRATION+IMMIGRATION
         YEAR += 1
@@ -82,6 +68,18 @@ while DATA_INPUTTED < 2:
             POPULATION += 3000
         elif 20 <= Crisis <= 40:
             POPULATION -= 3000
+
+"""os.chdir("/workspaces/Economy-Program/EconomySimulationFiles")
+DATA_INPUTTED = 0
+with open("File_Number.txt", "r+", encoding="utf-8") as fp:
+    Content = fp.readlines()
+    AMOUNT_WRITTEN = int(Content[0])
+    AMOUNT_WRITTEN += 1
+    fp.close()
+with open("FileNumber.txt", "w+", encoding="utf-8") as fp:
+    fp.write(str(AMOUNT_WRITTEN))
+    fp.close()
+AMOUNT_WRITTEN = str(AMOUNT_WRITTEN)            
         POPULATION_END_OF_YEAR = POPULATION_START_OF_YEAR
         POPULATION_CHANGE = ((POPULATION_END_OF_YEAR-POPULATION_START_OF_YEAR)
         /POPULATION_START_OF_YEAR)
@@ -160,6 +158,4 @@ while DATA_INPUTTED < 2:
             fp.write("\n")
             fp.write(TAXINC)
         fp.write("\n")
-        fp.close()
-    DATA_INPUTTED += 1
-    YEAR = 1960
+        fp.close()"""
