@@ -84,6 +84,16 @@ Developing the datainputter function to a usable and eventually an advanced stat
 # employment must be more important for middle than low, welfare most for low, taxes for the rich,
 #  are highest then middle and low are the same. GDP high, mid, low, lit high, mid, low.
 #  For most variables, desirability is in order of which class you desire.
+
+
+Additionally the following features would revolutionise the program:
+Industrial performance
+Residential performance
+Construction index
+Resource economy (Each country,city,region analysed shall be defined by three tangible resources:
+Beyond which population factors in but isn't a part of. For a country like Greece it would be:
+Fish? Cars? fraud?
+Trade
 """
 #Beginning of program load
 PACE = input("Slow or Fast or rapid Pace"\
