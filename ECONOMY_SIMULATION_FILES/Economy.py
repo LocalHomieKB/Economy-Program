@@ -93,7 +93,22 @@ Construction index
 Resource economy (Each country,city,region analysed shall be defined by three tangible resources:
 Beyond which population factors in but isn't a part of. For a country like Greece it would be:
 Fish? Cars? fraud?
-Trade
+Capital uncertainity: Similar to the evaluation of stock traders based on its performance:
+    - Recession
+    - Long time weak performance
+    - 1.00 indicates great capital certainity, any number below is poor and has integral effects on:
+        - Stock investments
+        - Trade
+        - Immigration
+        - High wealth class spending
+    
+Trade - defined by random non printed events(unless printed for debugging reason to introduce:
+    -Randomness
+    -Replayability
+
+Random or pre-defined or self-defined or self-defining trade acts. These will have some arbitrary
+some free-from effects on public services, resource economy e.t.c. Think "Democracy 2016", HOI4
+focuses. And other Paradox game idea systems
 """
 #Beginning of program load
 PACE = input("Slow or Fast or rapid Pace"\
