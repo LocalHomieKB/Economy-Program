@@ -34,42 +34,6 @@ def datainputter(MIGRATION_PERCENT,TAXES,POPULATION,WORK_EFFICIENCY,
             PUBLIC_SPENDING,MIGRATION,IMMIGRATION_RATE,WORKING_AGE_POPULATION,UNEMPLOYED_POPULATION,
             RICH_POPULATION,RICH_POPULATION_VALUE,WORKING_POPULATION_VALUE,TOTAL_SALARIES_PAID,
             TOTAL_WELFARE,TOTAL_SCORE,VALUE_OF_TOWN,YEAR,CRIME,LITERACY,GDP,YEARLY_MORTALITY_RATE):
-    YEAR=1960
-    while YEAR<2020 or KeyboardInterrupt:
-        YEAR += 1
-        GDP = WORK_EFFICIENCY * WORKING_AGE_POPULATION + ASSETS
-        PUBLIC_SPENDING = 0.4 * GDP
-        HEALTHCARE = (1000 * PUBLIC_SPENDING * 1)
-        POPULATION =(1000 * IMMIGRATION_RATE * 0.06) - (YEARLY_MORTALITY_RATE)
-        LITERACY = 0.8 #Should be impacted positively by gdp, public spending, employment, rich pop,
-                       #Welfare, high taxes.Affects work efficeincy positively as well as class movement,
-                       #Mortality goes down, values which impact it positvely also are impacted positvely
-                       #By it. Negatively impacted by crime, mortality, migration of skilled workers(not yet
-                       # implemented) Unemployment decreases it directly. 
-        CRIME = (1520 - (LITERACY*125) ) #The result is 520, the base crime rate of 520 crimes a year, 10 a week.
-                                         #This works out nicely for any increase in literacy (beyond 0.8)decreasing crime
-                                         #and vice versa   .
-        #1000 can represent the base weighted value figure of variable importance. Anything else less important goes below this.
-        IMMIGRATION_PERCENT = 1000 * LITERACY + 1000 
-        MIGRATION_PERCENT = 1000 * CRIME
-        IMMIGRATION = 1000 * IMMIGRATION_PERCENT
-        MIGRATION = 1000 * MIGRATION_PERCENT                #All these variables are in progress, edit as you like but comment your logic             
-        YEARLY_MORTALITY_RATE = CRIME*0.15*POPULATION + 0.02*POPULATION
-        POPULATION = (IMMIGRATION-MIGRATION) - YEARLY_MORTALITY_RATE
-        #Immigration percent to be weighed according to importance. Initially it will be:
-        #1.00 for most importance, 0.8 for high, 0.5 for medium, 0.3 for low, 0 for no importance e.t.c
-        IMMIGRATION_PERCENT=0.16*LITERACY
-
-#Beginning of program load
-PACE = input("Slow or Fast or rapid Pace"\
-    "If slow then data updates every 3 seconds"\
-    "If fast then data updates every 0.5 seconds"\
-    "If rapid then data has no update and simply gives you final results ASAP(for data collection")
-
-#Archivable data for consulting of future ideas
-DATA_INPUTTED=0
-MODE = str(input("Input mode "))
-while DATA_INPUTTED < 2:
     YEAR = 1960
     IMMIGRATION_PERCENT = 0.016
     MIGRATION_PERCENT = 0.00037
@@ -79,7 +43,6 @@ while DATA_INPUTTED < 2:
     PUBLIC_SPENDING = 13414*POPULATION
     MIGRATION = int(MIGRATION_PERCENT * POPULATION)
     IMMIGRATION = int(IMMIGRATION_PERCENT * POPULATION)
-    WORKING_AGE_POPULATION = 0.8 * POPULATION
     UNEMPLOYED_POPULATION = 0.2 * POPULATION
     RICH_POPULATION = 0.1 * POPULATION
     RICH_POPULATION_VALUE = RICH_POPULATION * 100
@@ -89,9 +52,26 @@ while DATA_INPUTTED < 2:
     TOTAL_SCORE = 0
     VALUE_OF_TOWN = (WORKING_POPULATION_VALUE + RICH_POPULATION_VALUE - TOTAL_WELFARE
     -TOTAL_SALARIES_PAID)
-    while YEAR < 2040:
-        POPULATION = POPULATION-MIGRATION+IMMIGRATION
+    LITERACY = 0.8  #Should be impacted positively by gdp, public spending, employment, rich pop,
+                    #Welfare, high taxes.Affects work efficeincy positively as well as class movement,
+                    #Mortality goes down, values which impact it positvely also are impacted positvely
+                    #By it. Negatively impacted by crime, mortality, migration of skilled workers(not yet
+                    # implemented) Unemployment decreases it directly. 
+    while YEAR<2020 or KeyboardInterrupt:
         YEAR += 1
+        PUBLIC_SPENDING = 0.4 * GDP
+        HEALTHCARE = (1000 * PUBLIC_SPENDING * 1)
+        YEARLY_MORTALITY_RATE = (((2/3) * 0.0076 * POPULATION)"""Elderly Death""" + (0.0024 * POPULATION))"""Health Related Deaths""" / POPULATION
+        IMMIGRATION_RATE = 0.005 * POPULATION - (CRIME * 1000) + (HEALTHCARE * 1000) - (YEARLY_MORTALITY_RATE * POPULATION)
+        POPULATION =(1000 * IMMIGRATION_RATE * 0.06) - (YEARLY_MORTALITY_RATE)
+        CRIME = 0.07952 * POPULATION
+        #1000 can represent the base weighted value figure of variable importance. Anything else less important goes below this.            
+         #All these variables are in progress, edit as you like but comment your logic             
+        #Immigration percent to be weighed according to importance. Initially it will be:
+        #1.00 for most importance, 0.8 for high, 0.5 for medium, 0.3 for low, 0 for no importance e.t.c
+        IMMIGRATION_PERCENT = 0.16 * LITERACY
+        WORKING_AGE_POPULATION = 0.8 * POPULATION
+        GDP = WORK_EFFICIENCY * WORKING_AGE_POPULATION + ASSETS
         MIGRATION = int(MIGRATION_PERCENT * POPULATION)
         WORKING_AGE_POPULATION = 0.8 * POPULATION
         UNEMPLOYED_POPULATION = 0.2 * POPULATION
@@ -100,7 +80,6 @@ while DATA_INPUTTED < 2:
         - TOTAL_SALARIES_PAID)
         TOTAL_SALARIES_PAID = WORKING_AGE_POPULATION * 400
         TOTAL_WELFARE = UNEMPLOYED_POPULATION * 150
-        POPULATION_START_OF_YEAR = POPULATION
         MILITARY_SPENDING = 0.2 * VALUE_OF_TOWN
         if POPULATION <= 10000:
             print("You lost, the town got too small. Try again.")
@@ -119,6 +98,17 @@ while DATA_INPUTTED < 2:
             POPULATION += 3000
         elif 20 <= Crisis <= 40:
             POPULATION -= 3000
+
+#Beginning of program load
+PACE = input("Slow or Fast or rapid Pace"\
+    "If slow then data updates every 3 seconds"\
+    "If fast then data updates every 0.5 seconds"\
+    "If rapid then data has no update and simply gives you final results ASAP(for data collection")
+
+#Archivable data for consulting of future ideas
+DATA_INPUTTED=0
+MODE = str(input("Input mode "))
+
 #File save code for data analysis
 """os.chdir("/workspaces/Economy-Program/EconomySimulationFiles")
 DATA_INPUTTED = 0

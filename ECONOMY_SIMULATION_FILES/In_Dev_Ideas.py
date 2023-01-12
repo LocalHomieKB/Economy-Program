@@ -53,3 +53,15 @@ Random or pre-defined or self-defined or self-defining trade acts. These will ha
 some free-from effects on public services, resource economy e.t.c. Think "Democracy 2016", HOI4
 focuses. And other Paradox game idea systems
 """
+
+
+
+"""
+
+
+Comments on current work:
+Yearly mortality rate calculated based on real life UK mortality statistics. Split into elderly death and health related death.
+Done by splitting the difference of 2/3 of 0.5 million deaths a year being elderly. The other side being health related.
+
+
+"""
