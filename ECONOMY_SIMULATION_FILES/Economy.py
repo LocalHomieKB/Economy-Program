@@ -13,13 +13,15 @@ This is equal to:TOTAL_SCORE = 90348800000 VALUE_OF_TOWN = 1129360000
 
 import time
 from time import sleep
+import random
+
 
 WORKING_NAME = "Simulacra" # One simulation should be based on the economy of Greece before during and after the Troika program
 POPULATION = 5000
 WEEKLY_UPDATES = False
 YEARLY_UPDATES = False
 
-#Scan the variable INPUT_SCOPE before the program runs to 
+#Scan the variable INPUT_SCOPE before the program runs to
 def SCOPE(INPUT_SCOPE):
     INPUT_SCOPE = input("Choose either Weekly or Yearly"\
     "If Weekly the program runs for a year with weekly updates of 52"\
@@ -34,14 +36,17 @@ def CRIME(CRIME_RATE):
 def datainputter(TAXES,POPULATION,WORK_EFFICIENCY,PUBLIC_SPENDING,
             IMMIGRATION_RATE,WORKING_AGE_POPULATION,UNEMPLOYED_POPULATION,
             TOTAL_SALARIES_PAID,TOTAL_WELFARE,YEAR,CRIME,LITERACY,GDP,YEARLY_MORTALITY_RATE,
-            ASSETS, HEALTHCARE):
+            ASSETS, HEALTHCARE)
+    #Natural year by year evolution must be influenced by scripts, events so on
+    #The random events are either in file, or out of file retrieved by open...
     while YEAR<2020 or KeyboardInterrupt:
         print("Year ", (YEAR))
         YEAR += 1
         LITERACY += TOTAL_WELFARE * 0.001 - LITERACY * 0.01
         PUBLIC_SPENDING = 0.4 * GDP
         HEALTHCARE = (1000 * PUBLIC_SPENDING * 1)
-        YEARLY_MORTALITY_RATE = (((2/3) * 0.0076 * POPULATION)"""Elderly Death""" + (0.0024 * POPULATION))"""Health Related Deaths""" / POPULATION
+        YEARLY_MORTALITY_RATE = ((((2/3) * 0.0076 * POPULATION)"""Elderly Death""" + (0.0024 * POPULATION))
+        """Health Related Deaths""" / POPULATION)
         IMMIGRATION_RATE = 0.005 * POPULATION - (CRIME * 1000) + (HEALTHCARE * 1000) - (YEARLY_MORTALITY_RATE * POPULATION)
         POPULATION =(1000 * IMMIGRATION_RATE * 0.06) - (YEARLY_MORTALITY_RATE)
         CRIME = 0.07952 * POPULATION
@@ -63,8 +68,30 @@ datainputter(YEAR = 1960,
     POPULATION = 67000000,
     WORK_EFFICIENCY = 0.6,
     LITERACY = 0.8)
+    
+A1=""
+A2=""
+A3=""
+A4=""
+B1=""
+B2=""
+B3=""
+B4=""
+C1="ELECTION"
+C2=""
+C3=""
+C4=""
+PRE_DEFINED_SCRIPTS = [A1,A2,A3,A4]
+SEMI_PRE-DEFINED_SCRIPTS = [B1,B2,B3,B4]
+NAMED_SCRIPTS = [C1,C2,C3,C4]
+def pick_script(SCRIPT)
+    SCRIPT = random.(0:13)
+    CHOSEN_SCRIPT = SCRIPT/12
+    if SCRIPT<=1:
+    elif 1<SCRIPT<=2
+    elif 2<SCRIPT<=3
 
-
-
-
-
+if "Election" in CHOSEN_SCRIPT:
+    print("Election time!/"
+          "The new prime minister is ...") # Should be integrated with political leader variable at some point
+                                           # Calculated by party popularity defined by money, nepotism whatverthefuck...
