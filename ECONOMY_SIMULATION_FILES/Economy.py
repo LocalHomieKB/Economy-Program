@@ -15,6 +15,7 @@ import time
 from time import sleep
 import random
 
+
 WORKING_NAME = "Simulacra" # One simulation should be based on the economy of Greece before during and after the Troika program
 POPULATION = 5000
 WEEKLY_UPDATES = False
@@ -54,7 +55,7 @@ def datainputter(TAXES,POPULATION,WORK_EFFICIENCY,PUBLIC_SPENDING,
         TOTAL_SALARIES_PAID = POPULATION * 0.6 * 400
         TOTAL_WELFARE = UNEMPLOYED_POPULATION * 150
         time.sleep(PACE)
-
+        
 #Beginning of program load
 while not "1 2 3" in PACE:
     PACE = input("Slow or Fast or rapid Pace(input 1 or 2 or 3)"\
@@ -67,6 +68,7 @@ datainputter(YEAR = 1960,
     POPULATION = 67000000,
     WORK_EFFICIENCY = 0.6,
     LITERACY = 0.8)
+    
 A1=""
 A2=""
 A3=""
