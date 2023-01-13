@@ -42,7 +42,7 @@ def datainputter(TAXES,POPULATION,WORK_EFFICIENCY,PUBLIC_SPENDING,
         PUBLIC_SPENDING = 0.4 * GDP
         HEALTHCARE = (1000 * PUBLIC_SPENDING * 1)
         YEARLY_MORTALITY_RATE = ((((2/3) * 0.0076 * POPULATION) + (0.0024 * POPULATION)) / POPULATION)
-        """first bracket=Elderly Death""" """second bracketHealth Related Deaths""" 
+        #first bracket=Elderly Death second bracketHealth Related Deaths
         IMMIGRATION_RATE = 0.005 * POPULATION - (CRIME * 1000) + (HEALTHCARE * 1000) - (YEARLY_MORTALITY_RATE * POPULATION)
         POPULATION =(1000 * IMMIGRATION_RATE * 0.06) - (YEARLY_MORTALITY_RATE)
         CRIME = 0.07952 * POPULATION
@@ -53,6 +53,10 @@ def datainputter(TAXES,POPULATION,WORK_EFFICIENCY,PUBLIC_SPENDING,
         if time % 2 == 0:
             script_process()
         time.sleep(PACE)
+    print(TOTAL_SALARIES_PAID)
+    print(WORKING_AGE_POPULATION)
+    print(TAXES)
+    
         
 def script_process():
     A1="One"
@@ -112,7 +116,7 @@ def script_process():
     if "TAXRATECHANGE" in CHOSEN_SCRIPT:
         print("Tax Rate Change/"
             "                    ") # Description
-                                    # Description part 2
+        TAXES += 0.1                            # Description part 2
     if "INTERESTRATECHANGE" in CHOSEN_SCRIPT:
         print("Interest rate change/"
             "                    ") # Description
@@ -127,9 +131,8 @@ while DECIDEDPACE is False:
     PACE = input("Slow or Fast or rapid Pace(input 1 or 2 or 3 or info)")
     if PACE == "info":
         print("If slow then data updates every 3 seconds"\
-        "If fast then data updates every 0.5 seco1nds"\
-        "If rapid then data has no update and simply gives you final results ASAP(for data collection")
-        PACE = input("Slow or Fast or rapid Pace(input 1 or 2 or 3 or info)")
+              "If fast then data updates every 0.5 seco1nds"\
+              "If rapid then data has no update" )
     else:
         PACE = int(PACE)
         DECIDEDPACE = True
