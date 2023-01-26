@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb53c855-3e5c-4a40-b88d-04bd8dc0b320" name="Changes" comment="" />
+    <list default="true" id="cb53c855-3e5c-4a40-b88d-04bd8dc0b320" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/1Session/LifeChanve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TKinter_practice/Button/BS.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TKinter_practice/Button/CC.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TKinter_practice/CheckButton/WhatsACheckButton.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TKinter_practice/CheckButton/WhatsInAWidgetValueanyway.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TKinter_practice/Entry/Entry,Contents.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TKinter_practice/Entry/EntryStates.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TKinter_practice/Entry/UsingEntryForPasswords.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TKinter_practice/Entry/WatchingForChanges.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TKinter_practice/Entry/WhatIsAnEntryWidget.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TKinter_practice/RadioButton/WhatsARadioButton.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,14 +37,19 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2JxLTH0AMj9xeGqZwEwQjNm9Wln" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -41,5 +62,8 @@
       <updated>1673014806547</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
