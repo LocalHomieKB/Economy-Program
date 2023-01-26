@@ -24,7 +24,7 @@ def CRIME(CRIME):
     elif SCOPE == "WEEK":
         CRIME = 52 # criminal events a year, converitble to weeks if needed
 
-def datainputter(TAXES,POPULATION,WORK_EFFICIENCY,PUBLIC_SPENDING,
+def main(TAXES,POPULATION,WORK_EFFICIENCY,PUBLIC_SPENDING,
             IMMIGRATION_RATE,WORKING_AGE_POPULATION,UNEMPLOYED_POPULATION,
             TOTAL_SALARIES_PAID,TOTAL_WELFARE,YEAR,CRIME,LITERACY,GDP,YEARLY_MORTALITY_RATE,
             ASSETS, HEALTHCARE):
@@ -137,8 +137,17 @@ while DECIDEDPACE is False:
         PACE = int(PACE)
         DECIDEDPACE = True
 
-datainputter(YEAR = 1960,
+main(YEAR = 1960,
     TAXES = 0.05,
     POPULATION = 67000000,
     WORK_EFFICIENCY = 0.6,
     LITERACY = 0.8)
+
+
+#Idea:: simulation choices
+#   #Fantasy kinggdom (special scrripts)
+#   #Greece (Troika pprogram, historical events, high score gained by
+# learning a strategy to solve the crisis)
+#   #United Kingdom(Long drain, freeplay essentially,
+#Mainly reoccuring events)
+# Each starts with 3 neighbours for events, tradde and scripts
