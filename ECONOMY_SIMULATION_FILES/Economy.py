@@ -59,7 +59,7 @@ def main(TAXES,POPULATION,WORK_EFFICIENCY,PUBLIC_SPENDING,
     
         
 def script_process():
-    A1="One"
+    A1="Epidemic"
     A2="Two"
     A3="Three"
     A4="Four"
@@ -79,12 +79,16 @@ def script_process():
     CHOSEN_SCRIPT = SCRIPTS[SCRIPT_NUMBER-1]
     if "One" in CHOSEN_SCRIPT:
         print("One  /"
-            "                    ") # Description
-                                    # Description part 2
+            "Epidemic has broken out"
+            "Mortality rate increases by 5% while its ongoing"
+            "It may be wise to invest in healthcare to counteract this")
     if "Two" in CHOSEN_SCRIPT:
         print("Two   /"
-            "                    ") # Description
-                                    # Description part 2
+            "Government scandal"
+            "Party popularity down by 20%"
+        ValueRandomised= randint(0,10)
+        if
+            "Rebellion time?")
     if "Three" in CHOSEN_SCRIPT:
         print("Three   /"
             "                    ") # Description
