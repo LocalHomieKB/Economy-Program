@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb53c855-3e5c-4a40-b88d-04bd8dc0b320" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ECONOMY_SIMULATION_FILES/PickAScriptOutOfAHat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Entranched/Compass.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Entranched/What_Is_A_Tranche_And_Pricing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ECONOMY_SIMULATION_FILES/Economy.py" beforeDir="false" afterPath="$PROJECT_DIR$/ECONOMY_SIMULATION_FILES/Economy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entranched/Compass.py" beforeDir="false" afterPath="$PROJECT_DIR$/Entranched/Compass.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -18,7 +18,7 @@
 
 #----
 
-#Scrap everythin year by year simulation in hourly increments, status of balance, returns, consistency and following
+#Scrap everythin year by year simulation in hourlyvisu increments, status of balance, returns, consistency and following
 #nvestor objectives is necessary to determine working the year after.
 #Bankruptcy = loss
 #Stagnant = small influx at first, two years in a row is a loss.
@@ -31,3 +31,19 @@
 
 #link to image file inspiration made by myself, hopefully python is capable of this otherwise unity may have to be used,
 #Altohugh its not out of question to use it. Check "Compass early design image" for more information on current ideas.
+
+
+#Following is some code from Chichilnisky(?) and their short selling manual textbook, hopefully
+#This will be useful to define the general market environment that the business can exist inside of and
+#Conduct its business in
+
+import random
+from random import randint
+PERIOD = ("a")
+TRADERS = randint(2,5) # For a random market x there will exist 2 to 5 traders who have an interest in it:
+#Shorting it or investing in it may be decided later, this is a visual template.
+COMMODITIES = randint(2,20) # For a random market x there exists 2 to 20 commodities that can be interacted with.
+def TIME():
+    CURRENTTIME = 0
+    for i in PERIOD:
+        CURRENTTIME += 1
