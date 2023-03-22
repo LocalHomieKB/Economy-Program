@@ -80,8 +80,13 @@ def main(TAXES,POPULATION,WORK_EFFICIENCY,PUBLIC_SPENDING,
     print(TAXES)
     
         
+<<<<<<< HEAD
 def script_process(NEIGHBOUR1, NEIGHBOUR2, NEIGHBOUR3):
     A1="One"
+=======
+def script_process():
+    A1="Epidemic"
+>>>>>>> bdf50dca8dd8b4c8994ddb0865ad1513b20503ff
     A2="Two"
     A3="Three"
     A4="Four"
@@ -100,6 +105,7 @@ def script_process(NEIGHBOUR1, NEIGHBOUR2, NEIGHBOUR3):
     SCRIPTS = (A1,A2,A3,A4,B1,B2,B3,B4,C1,C2,C3,C4)
     CHOSEN_SCRIPT = SCRIPTS[SCRIPT_NUMBER-1]
     if "One" in CHOSEN_SCRIPT:
+<<<<<<< HEAD
         print("Trade Opportunity!  /" #Description
             "Your Neighbour " + (NEIGHBOUR1) + "offers a trade opportunity")
             # ^ Description part 2                 
@@ -108,6 +114,19 @@ def script_process(NEIGHBOUR1, NEIGHBOUR2, NEIGHBOUR3):
             "Your Neighbour " + (NEIGHBOUR2) + "offers a trade opportunity") # 
             #^Description part 2
                                     
+=======
+        print("One  /"
+            "Epidemic has broken out"
+            "Mortality rate increases by 5% while its ongoing"
+            "It may be wise to invest in healthcare to counteract this")
+    if "Two" in CHOSEN_SCRIPT:
+        print("Two   /"
+            "Government scandal"
+            "Party popularity down by 20%"
+        ValueRandomised= randint(0,10)
+        if
+            "Rebellion time?")
+>>>>>>> bdf50dca8dd8b4c8994ddb0865ad1513b20503ff
     if "Three" in CHOSEN_SCRIPT:
         print("Trade Opportunity   /"# Description
             "Your Neighbour " + (NEIGHBOUR3) + "offers a trade opportunity") # 
