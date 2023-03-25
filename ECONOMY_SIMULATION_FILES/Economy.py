@@ -7,8 +7,8 @@ from time import sleep
 import random
 from random  import randint
 
-WORKING_NAME = "Simulacra" # One simulation should be based on the economy of
-#Greece before during and after the Troika program
+WORKING_NAME = "Simulacra" # One simulation should be based on the economy of Greece before during and after the Troika program
+POPULATION = 5000
 WEEKLY_UPDATES = False
 YEARLY_UPDATES = False
 
@@ -24,10 +24,28 @@ def CRIME(CRIME):
     elif SCOPE == "WEEK":
         CRIME = 52 # criminal events a year, converitble to weeks if needed
 
+def NEIGHBOURMAKER(NEIGHBOUR1, NEIGHBOUR2, NEIGHBOUR3):
+    NEIGHBOURLIST = ("Turkey", "Yugoslavia", "Albania", "Bulgaria", "Italy"/
+    "France", "The UK", "The USA")
+    NEIGHBOURLISTAMOUNT = 0
+    NEIGHBOUR1 = 0
+    NEIGHBOUR2 = 0
+    NEIGHBOUR3 = 0
+    STOREDNEIGHBOUR = str(NEIGHBOURLIST[randint(0,NEIGHBOURLISTAMOUNT)])
+    NEIGHBOUR1 = str(STOREDNEIGHBOUR)
+    NEIGHBOURLIST.remove(STOREDNEIGHBOUR)
+    STOREDNEIGHBOUR = str(NEIGHBOURLIST[randint(0,NEIGHBOURLISTAMOUNT)])
+    NEIGHBOUR2 = str(STOREDNEIGHBOUR)
+    NEIGHBOURLIST.remove(STOREDNEIGHBOUR)
+    STOREDNEIGHBOUR = str(NEIGHBOURLIST[randint(0,NEIGHBOURLISTAMOUNT)])
+    NEIGHBOUR3 = str(STOREDNEIGHBOUR)
+    NEIGHBOURLIST.remove(STOREDNEIGHBOUR)
+    #This code generates a neighbour, stores, assigns, removes from list
+
 def main(TAXES,POPULATION,WORK_EFFICIENCY,PUBLIC_SPENDING,
             IMMIGRATION_RATE,WORKING_AGE_POPULATION,UNEMPLOYED_POPULATION,
-            TOTAL_SALARIES_PAID,TOTAL_WELFARE,YEAR,CRIME,LITERACY,GDP,
-            YEARLY_MORTALITY_RATE,ASSETS, HEALTHCARE):
+            TOTAL_SALARIES_PAID,TOTAL_WELFARE,YEAR,CRIME,LITERACY,GDP,YEARLY_MORTALITY_RATE,
+            ASSETS, HEALTHCARE):
     #Natural year by year evolution must be influenced by scripts, events so on
     #The random events are either in file, or out of file retrieved by open...
     YEAR = 0
@@ -41,11 +59,9 @@ def main(TAXES,POPULATION,WORK_EFFICIENCY,PUBLIC_SPENDING,
         LITERACY += TOTAL_WELFARE * 0.001 - LITERACY * 0.01
         PUBLIC_SPENDING = 0.4 * GDP
         HEALTHCARE = (1000 * PUBLIC_SPENDING * 1)
-        YEARLY_MORTALITY_RATE = ((((2/3) * 0.0076 * POPULATION) +
-         (0.0024 * POPULATION)) / POPULATION)
+        YEARLY_MORTALITY_RATE = ((((2/3) * 0.0076 * POPULATION) + (0.0024 * POPULATION)) / POPULATION)
         #first bracket=Elderly Death second bracketHealth Related Deaths
-        IMMIGRATION_RATE = 0.005 * POPULATION - (CRIME * 1000)
-        + (HEALTHCARE * 1000) - (YEARLY_MORTALITY_RATE * POPULATION)
+        IMMIGRATION_RATE = 0.005 * POPULATION - (CRIME * 1000) + (HEALTHCARE * 1000) - (YEARLY_MORTALITY_RATE * POPULATION)
         POPULATION =(1000 * IMMIGRATION_RATE * 0.06) - (YEARLY_MORTALITY_RATE)
         CRIME = 0.07952 * POPULATION
         WORKING_AGE_POPULATION = 0.8 * POPULATION
@@ -60,8 +76,13 @@ def main(TAXES,POPULATION,WORK_EFFICIENCY,PUBLIC_SPENDING,
     print(TAXES)
     
         
+<<<<<<< HEAD
+def script_process(NEIGHBOUR1, NEIGHBOUR2, NEIGHBOUR3):
+    A1="One"
+=======
 def script_process():
     A1="Epidemic"
+>>>>>>> bdf50dca8dd8b4c8994ddb0865ad1513b20503ff
     A2="Two"
     A3="Three"
     A4="Four"
@@ -80,6 +101,16 @@ def script_process():
     SCRIPTS = (A1,A2,A3,A4,B1,B2,B3,B4,C1,C2,C3,C4)
     CHOSEN_SCRIPT = SCRIPTS[SCRIPT_NUMBER-1]
     if "One" in CHOSEN_SCRIPT:
+<<<<<<< HEAD
+        print("Trade Opportunity!  /" #Description
+            "Your Neighbour " + (NEIGHBOUR1) + "offers a trade opportunity")
+            # ^ Description part 2                 
+    if "Two" in CHOSEN_SCRIPT:
+        print("Trade Opportunity!   /"# Description
+            "Your Neighbour " + (NEIGHBOUR2) + "offers a trade opportunity") # 
+            #^Description part 2
+                                    
+=======
         print("One  /"
             "Epidemic has broken out"
             "Mortality rate increases by 5% while its ongoing"
@@ -92,22 +123,24 @@ def script_process():
         if ValueRandomised > 0.7 :
             ("Protests continue"/
             "Rebellion time?")
+>>>>>>> bdf50dca8dd8b4c8994ddb0865ad1513b20503ff
     if "Three" in CHOSEN_SCRIPT:
-        print("Three   /"
-            "                    ") # Description
-                                    # Description part 2
+        print("Trade Opportunity   /"# Description
+            "Your Neighbour " + (NEIGHBOUR3) + "offers a trade opportunity") # 
+            #Description part 2
+                                    
     if "Four" in CHOSEN_SCRIPT:
-        print("Four   /"
-            "                    ") # Description
-                                    # Description part 2
+        print("Four   /"            # Description
+            "                    ") # Description part 2
+                                    
     if "Five" in CHOSEN_SCRIPT:
-        print("Five   /"
-            "                    ") # Description
-                                    # Description part 2
+        print("Five   /"        # Description
+            "                    ") # Description part 2
+                                    
     if "Six" in CHOSEN_SCRIPT:
-        print("Six   /"
-            "                    ") # Description
-                                    # Description part 2
+        print("Six   /"         # Description
+            "                    ") # Description part 2
+                                    
     if "Seven" in CHOSEN_SCRIPT:
         print("Seven   /"
             "                    ") # Description
@@ -118,12 +151,8 @@ def script_process():
                                     # Description part 2          
     if "ELECTION" in CHOSEN_SCRIPT:
         print("Election time!/"
-            "The new prime minister is ...") # Should be integrated with 
-            #political leader variable at some point
-            # Calculated by party popularity defined by:
-            # money, nepotism whatverthefuck.... Leader statistics write
-            # attempt, either in file or in txt to be assigned at 
-            # program start. See Bottom comments
+            "The new prime minister is ...") # Should be integrated with political leader variable at some point
+                                            # Calculated by party popularity defined by money, nepotism whatverthefuck...
     if "TAXRATECHANGE" in CHOSEN_SCRIPT:
         print("Tax Rate Change/"
             "                    ") # Description
@@ -148,7 +177,10 @@ while DECIDEDPACE is False:
         PACE = int(PACE)
         DECIDEDPACE = True
 
-main(YEAR = 1960,
+NEIGHBOURMAKER()
+
+if __name__ == "__main__":
+    main(YEAR = 1960,
     TAXES = 0.05,
     POPULATION = 67000000,
     WORK_EFFICIENCY = 0.6,
