@@ -7,8 +7,8 @@ from time import sleep
 import random
 from random  import randint
 
-WORKING_NAME = "Simulacra" # One simulation should be based on the economy of Greece before during and after the Troika program
-POPULATION = 5000
+WORKING_NAME = "Simulacra" # One simulation should be based on the economy of
+#Greece before during and after the Troika program
 WEEKLY_UPDATES = False
 YEARLY_UPDATES = False
 
@@ -26,8 +26,8 @@ def CRIME(CRIME):
 
 def main(TAXES,POPULATION,WORK_EFFICIENCY,PUBLIC_SPENDING,
             IMMIGRATION_RATE,WORKING_AGE_POPULATION,UNEMPLOYED_POPULATION,
-            TOTAL_SALARIES_PAID,TOTAL_WELFARE,YEAR,CRIME,LITERACY,GDP,YEARLY_MORTALITY_RATE,
-            ASSETS, HEALTHCARE):
+            TOTAL_SALARIES_PAID,TOTAL_WELFARE,YEAR,CRIME,LITERACY,GDP,
+            YEARLY_MORTALITY_RATE,ASSETS, HEALTHCARE):
     #Natural year by year evolution must be influenced by scripts, events so on
     #The random events are either in file, or out of file retrieved by open...
     YEAR = 0
@@ -41,9 +41,11 @@ def main(TAXES,POPULATION,WORK_EFFICIENCY,PUBLIC_SPENDING,
         LITERACY += TOTAL_WELFARE * 0.001 - LITERACY * 0.01
         PUBLIC_SPENDING = 0.4 * GDP
         HEALTHCARE = (1000 * PUBLIC_SPENDING * 1)
-        YEARLY_MORTALITY_RATE = ((((2/3) * 0.0076 * POPULATION) + (0.0024 * POPULATION)) / POPULATION)
+        YEARLY_MORTALITY_RATE = ((((2/3) * 0.0076 * POPULATION) +
+         (0.0024 * POPULATION)) / POPULATION)
         #first bracket=Elderly Death second bracketHealth Related Deaths
-        IMMIGRATION_RATE = 0.005 * POPULATION - (CRIME * 1000) + (HEALTHCARE * 1000) - (YEARLY_MORTALITY_RATE * POPULATION)
+        IMMIGRATION_RATE = 0.005 * POPULATION - (CRIME * 1000)
+        + (HEALTHCARE * 1000) - (YEARLY_MORTALITY_RATE * POPULATION)
         POPULATION =(1000 * IMMIGRATION_RATE * 0.06) - (YEARLY_MORTALITY_RATE)
         CRIME = 0.07952 * POPULATION
         WORKING_AGE_POPULATION = 0.8 * POPULATION
@@ -83,11 +85,12 @@ def script_process():
             "Mortality rate increases by 5% while its ongoing"
             "It may be wise to invest in healthcare to counteract this")
     if "Two" in CHOSEN_SCRIPT:
-        print("Two   /"
+        print("Two   "
             "Government scandal"
-            "Party popularity down by 20%"
-        ValueRandomised= randint(0,10)
-        if
+            "Party popularity down by 20%")
+        ValueRandomised = randint(0,10)
+        if ValueRandomised > 0.7 :
+            ("Protests continue"/
             "Rebellion time?")
     if "Three" in CHOSEN_SCRIPT:
         print("Three   /"
@@ -115,8 +118,12 @@ def script_process():
                                     # Description part 2          
     if "ELECTION" in CHOSEN_SCRIPT:
         print("Election time!/"
-            "The new prime minister is ...") # Should be integrated with political leader variable at some point
-                                            # Calculated by party popularity defined by money, nepotism whatverthefuck...
+            "The new prime minister is ...") # Should be integrated with 
+            #political leader variable at some point
+            # Calculated by party popularity defined by:
+            # money, nepotism whatverthefuck.... Leader statistics write
+            # attempt, either in file or in txt to be assigned at 
+            # program start. See Bottom comments
     if "TAXRATECHANGE" in CHOSEN_SCRIPT:
         print("Tax Rate Change/"
             "                    ") # Description
@@ -149,9 +156,52 @@ main(YEAR = 1960,
 
 
 #Idea:: simulation choices
-#   #Fantasy kinggdom (special scrripts)
+#   #Fantasy kinggdom (special scrripts) Check 'Simulacra' paint 3d file
 #   #Greece (Troika pprogram, historical events, high score gained by
 # learning a strategy to solve the crisis)
 #   #United Kingdom(Long drain, freeplay essentially,
-#Mainly reoccuring events)
-# Each starts with 3 neighbours for events, tradde and scripts
+#Mainly reoccuring events. Try to avoid collapse of diplomacy and of your
+# country. Strong economics and trade routes, one invisible to China +
+#All commonwealth to be programmed. Need a journal for approximate trade output
+# relative to GDP and/or any other country statistics
+# Each starts with 3(May actually change)
+# neighbours for events, trade and scripts
+# 
+# Greece - (Main pop 60, , secondary pop 40, tertiary pop 20)
+# Need a matrix to define popularity, money donations, skill, the level of 
+# their influence in % to an industry, which depending on industry influence 
+# affects level based modifiers, 3 or 4 levels for each.
+# TROIKA DIRECTIVES -"As the EU's biggest scapegoat, Greece and its debt
+# can be annihilated, as to free the EU powers from their burden" Germany focus
+# to take out Greece, Semi pre determined with these faction alignments:
+# Anti EU
+# America(Supports UK)
+# UK(support Greece and independence blah blah bull)
+# Russia(Advisor to Germany:"
+#Obviously unless some under the table fun happens Russia will bend
+# over the EU and have its fun", Russia gains all Black sea related land(Helps
+# them mess up Ukraine later) as well as Islands(Naval stuff). They may decide
+# to promise not to intervene, volunteer or invade all with separate 
+#reprecussions)
+# Pro EU
+# Germany(Leader of EU decisions and determines EU intervention, historical
+# will be an EU invasion as the AI, much costlier decisions scaling in cost
+# Based on time for recovery
+# Italy(Reignition of the iron pact, neutrality or invades Germany for
+# Austrian land, this Austria path prevents a Greece war but is difficult for
+# Italy obviously as this action is deemed nefarious by all other factions)
+#Millenium dawn mod? Is there a mod that features this)
+# Neutral
+# France(Initial or forever?)
+# Additionally each country contains one or more unique resources with their
+# own modifiers based on trade influence and/or investment. The UK resource
+# would be Banking and cyber security, these act as subsidiary to service
+# industry, so investment in service affects it based on an equal spread
+# to all other service subsidiaries, direct investment is possible into a sub,
+# however this can disproportionately affect other branches, so a spread 
+# approach could be better.
+# Simulacra(The Castle"Security above all, condenment down to persecution")
+# - (main pop 100, Secessionist possible later). This may become a hoi4 map...
+# Simulacra resources are gonna be typical fantasy shit, Magic stones in the 
+# small independent nation, which can use this to embargo The Castle and block
+# them out of using magic. 
