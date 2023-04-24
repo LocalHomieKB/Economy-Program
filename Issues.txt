@@ -1,0 +1,5 @@
+#1 All stats too high
+    example :
+    ('The year at finish = ', 1961)  ('Immigration Rate = ', 2799999999319666.5)
+      ('Population = ', 1.6799999995917998e+16)  ('Tax Income = ', 900000000000)
+      ('Salaries paid this year ', 403199999902031936)  ('Welfare paid this year ', 300000000) 
