@@ -88,6 +88,8 @@ TOTAL_WELFARE = 1000
 GDP = 100000
 YEARLY_MORTALITY_RATE = 0.035
 HEALTHCAREEFFICIENCY = 0.6
+ECONOMICDEVELOPMENT = 0.5
+HOMELESSRATE = 0.05
 
 #SCRIPT SPECIFIC VARIABLES
 EPIDEMIC = False # If true, the program will run in epidemic mode.
@@ -102,11 +104,13 @@ def script_process(TAXINCOME):
     A4="GovernmentScandal"
     B1="Epidemic"
     B2="TaxRateChange"
+    B3="GoodYear"
+    B4="BadYear"
     PRE_DEFINED_SCRIPTS = [A1,A2,A3,A4]
-    SEMI_PRE_DEFINED_SCRIPTS = [B1,B2]#B3,B4
+    SEMI_PRE_DEFINED_SCRIPTS = [B1,B2,B3,B4]
     #Undefined Scripts = [C1,C2,C3,C4]
     SCRIPT_NUMBER = random.randint(0,5)
-    SCRIPTS = (A1,A2,A3,A4,B1,B2)#B3,B4,C1,C2,C3,C4)
+    SCRIPTS = (A1,A2,A3,A4,B1,B2B3,B4)#C1,C2,C3,C4)
     CHOSEN_SCRIPT = SCRIPTS[SCRIPT_NUMBER]
     if "One" in CHOSEN_SCRIPT:
         CURRENTTAXINCOME = TAXINCOME
@@ -148,7 +152,9 @@ def script_process(TAXINCOME):
     if "TAXRATECHANGE" in CHOSEN_SCRIPT:
         INFO = ("Tax Rate Change")
         TAXINCOME += TAXINCOME * 0.01
-        return INFO   
+        return INFO
+    if "GOODYEAR" in CHOSEN_SCRIPT:
+        COUNTRYDEVELOPMENT += 0.01(for every 0.01 this increases all other variables to improve the country)   
 """
 #Beginning of program load
 DECIDEDPACE = False
@@ -172,6 +178,16 @@ while DECIDEDPACE is False:
     else:
         print("Pace failed")
 """
+
+"""
+Potential change
+GoodYear/BadYear:
+    When this function is invoked the program will randomly decide which is true, and then certain variables
+    attributed will then increase or decrease.
+"""
+"""
+def POPULATION_HIERARCHY(POPULATION):
+
 #Main portion of code
 while YEAR != 1970:
     POPULATION_START_OF_YEAR = POPULATION
@@ -191,12 +207,13 @@ while YEAR != 1970:
     #POPULATION =(100 * IMMIGRATION_RATE * 0.06) - (YEARLY_MORTALITY_RATE) For debugging pop increases by 100 each year
     POPULATION += 100
     #Bad Code : events already determined : CRIME = 0.07952 * POPULATION
-    WORKING_AGE_POPULATION = 0.6 * POPULATION
-    UNEMPLOYED_POPULATION = 0.1 * POPULATION
+    WORKING_AGE_POPULATION = (0.6 * POPULATION) - (HOMELESSRATE * POPULATION)
+    UNEMPLOYED_POPULATION = (0.1 * POPULATION) + (HOMELESSRATE * POPULATION)
     #Bad Code : just use a real equation : GDP = WORK_EFFICIENCY * (0.6 * POPULATION)
     TOTAL_SALARIES_PAID = WORKING_AGE_POPULATION * 5
-    TOTAL_WELFARE = UNEMPLOYED_POPULATION * 2
+    TOTAL_WELFARE = (UNEMPLOYED_POPULATION * 2) + (HOMELESSRATE * POPULATION * 4)
     TAXINCOME = POPULATION * 10
+    CAPITAL_AVAILABLE = TAXINCOME - TOTAL_WELFARE - TOTAL_SALARIES_PAID - PUBLIC_SPENDING 
     #Needs to calculate tax income somehow
     """""
     #SCRIPT SPECIFIC
@@ -231,6 +248,11 @@ while YEAR != 1970:
         else:
             time.sleep(PACE)
             PACEUNDECIDED = False
+    """
+    """
+    if ECONOMICDEVELOPMENT > 0.5:
+        IMMIGRATION_RATE += 0.01
+        HOMELESSRATE -= 0.001
     """
     POPULATION_END_OF_YEAR = POPULATION
     #   File save code
