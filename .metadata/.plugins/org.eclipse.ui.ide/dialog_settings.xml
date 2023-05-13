@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="installedFeatures">
+		<item value="AnyEditTools:2.7.3.202211050736"/>
+		<item value="org.eclipse.egit:6.4.0.202211300538-r"/>
+		<item value="org.eclipse.emf.common:2.28.0.v20221121-1400"/>
+		<item value="org.eclipse.emf.ecore:2.30.0.v20221121-1400"/>
+		<item value="org.eclipse.epp.mpc:1.10.1.v20221110-1841"/>
+		<item value="org.eclipse.help:2.3.1200.v20221123-1800"/>
+		<item value="org.eclipse.jgit.gpg.bc:6.4.0.202211300538-r"/>
+		<item value="org.eclipse.jgit.http.apache:6.4.0.202211300538-r"/>
+		<item value="org.eclipse.jgit.ssh.apache:6.4.0.202211300538-r"/>
+		<item value="org.eclipse.jgit:6.4.0.202211300538-r"/>
+		<item value="org.eclipse.platform:4.26.0.v20221123-2302"/>
+		<item value="org.eclipse.rcp:4.26.0.v20221123-2302"/>
+		<item value="org.eclipse.userstorage:1.2.0.v20210517-0327"/>
+		<item value="org.python.pydev.feature:10.1.4.202304151225"/>
+	</list>
+</section>
