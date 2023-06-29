@@ -18,12 +18,15 @@ VATLoop = True
 while VATLoop == True:
     if VAT == 4:#%
         HappinessModifier += 5#% happiness
+        GoodConsumptionModifier += 1
         VATLoop = False
     if VAT == 5:#%
         HappinessModifier += 0#% happiness
+        GoodConsumptionModifier += 0
         VATLoop = False
     if VAT == 6:#%
         HappinessModifier += -5#% happiness
+        GoodConsumptionModifier += -1
         VATLoop = False
     else:
         VATLoop = False
@@ -56,21 +59,20 @@ def HAPPINESSRESULT(HappinessModifier):
     if HappinessModifier <= 50    :
         HappinessResult = ("Overjoyed")
 
-Year = 2023
-Month = 5
-while Year != 2024 and Month != 5:
+YearsRun = 0
+while (YearsRun < 12):
     HAPPINESSCHECK(Population, HappinessModifier, GoodConsumptionModifier)
     TotalIncomeFromVAT += VAT * (GoodConsumptionModifier * Population)
-    Month += 1
-    if Month == 12:
-        Year += 1
-        Month = 1
+    YearsRun += 1
 
 HAPPINESSRESULT(HappinessModifier)
-FINANCIALRETURN = ("The government imposed a " , (VAT) , "% Value Added Tax, this earned\
- them " , (TotalIncomeFromVAT) , "from the sale of wine alone")
-SOCIALRETURN = ("The citizens felt " , (HappinessResult) , "With the current \
-                state of affairs")
+VAT = (str(VAT))
+TotalIncomeFromVAT = (str(TotalIncomeFromVAT))
+FINANCIALRETURN = "The government imposed a " + (VAT) + "% Value Added Tax, this earned\
+ them " + (TotalIncomeFromVAT) +  " from the sale of wine alone"
+SOCIALRETURN = "The citizens felt " + (HappinessResult) + " With the current \
+state of affairs"
                 
 print(FINANCIALRETURN)
 print(SOCIALRETURN)
+print(HappinessModifier)
