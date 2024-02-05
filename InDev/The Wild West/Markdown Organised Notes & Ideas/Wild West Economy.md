@@ -1,0 +1,4 @@
+###### Economy
+Booze
+Ladies
+Robbery
