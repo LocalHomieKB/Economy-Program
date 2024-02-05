@@ -21,19 +21,28 @@
             "id": "e1d2541c75f2a5e7",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": -85,
-                  "y": -147.20139090184966,
-                  "zoom": 0
-                }
+                "file": "Wild West Economy.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "331224856e698488",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ECS.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -83,8 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "cfef056255f141ea",
@@ -100,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Untitled.canvas",
+                "file": "ECS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Untitled.canvas",
+                "file": "ECS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Untitled.canvas"
+                "file": "ECS.md"
               }
             }
           }
@@ -161,9 +169,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e1d2541c75f2a5e7",
+  "active": "331224856e698488",
   "lastOpenFiles": [
     "Wild West Economy.md",
+    "ECS.md",
     "Untitled.canvas"
   ]
 }
