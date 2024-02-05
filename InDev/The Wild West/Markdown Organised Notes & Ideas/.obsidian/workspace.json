@@ -21,11 +21,14 @@
             "id": "e1d2541c75f2a5e7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "Wild West Economy.md",
-                "mode": "source",
-                "source": false
+                "file": "Untitled.canvas",
+                "viewState": {
+                  "x": -85,
+                  "y": -147.20139090184966,
+                  "zoom": 0
+                }
               }
             }
           }
@@ -80,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "cfef056255f141ea",
@@ -96,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Wild West Economy.md",
+                "file": "Untitled.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Wild West Economy.md",
+                "file": "Untitled.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Wild West Economy.md"
+                "file": "Untitled.canvas"
               }
             }
           }
@@ -159,6 +163,7 @@
   },
   "active": "e1d2541c75f2a5e7",
   "lastOpenFiles": [
-    "Wild West Economy.md"
+    "Wild West Economy.md",
+    "Untitled.canvas"
   ]
 }

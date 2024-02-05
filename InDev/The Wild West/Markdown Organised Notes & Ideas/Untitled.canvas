@@ -1,0 +1,25 @@
+{
+	"nodes":[
+		{"id":"89a593ddf136e99c","x":-200,"y":-173,"width":250,"height":60,"type":"text","text":"#Ladies\n"},
+		{"id":"3f3b002bca9ea877","x":-609,"y":-54,"width":250,"height":60,"type":"text","text":"#Distilling"},
+		{"id":"b19bb1a9acc8e9fe","x":-359,"y":-54,"width":250,"height":60,"type":"text","text":"#Trade"},
+		{"id":"3c45239171cac9ca","x":360,"y":-84,"width":250,"height":60,"type":"text","text":"#TownRobberies\n\n"},
+		{"id":"3f21472492366f2b","x":-45,"y":-24,"width":250,"height":60,"type":"text","text":"#Buying\n"},
+		{"id":"67e49c0d3806e27f","x":-200,"y":36,"width":250,"height":60,"type":"text","text":"#Kidnapping"},
+		{"id":"8007f4459ead933d","x":110,"y":36,"width":250,"height":60,"type":"text","text":"#RoadRobberies\n\n"},
+		{"id":"6637b4f7c87b4354","x":-325,"y":-580,"width":500,"height":343,"type":"text","text":"#Economy\nFor a functioning Wild West gang economy the 3 products below must be kept in equilibrium. To keep these in equilibrium the natural sources of decay must be kept minimum and the feeder processes must be kept in play."},
+		{"id":"b6764299b867901f","x":-560,"y":-203,"width":250,"height":60,"type":"text","text":"#Booze"},
+		{"id":"babae8ef450e7439","x":175,"y":-173,"width":250,"height":60,"type":"text","text":"#Robbery\n"}
+	],
+	"edges":[
+		{"id":"125a85cdec9e579d","fromNode":"b6764299b867901f","fromSide":"top","toNode":"6637b4f7c87b4354","toSide":"left"},
+		{"id":"f9f5dc7079049005","fromNode":"89a593ddf136e99c","fromSide":"top","toNode":"6637b4f7c87b4354","toSide":"bottom"},
+		{"id":"3bb9e9d82d45400e","fromNode":"babae8ef450e7439","fromSide":"top","toNode":"6637b4f7c87b4354","toSide":"right"},
+		{"id":"f76468b534235f4c","fromNode":"b19bb1a9acc8e9fe","fromSide":"top","toNode":"b6764299b867901f","toSide":"bottom"},
+		{"id":"1eb6c4e492174fde","fromNode":"3f3b002bca9ea877","fromSide":"top","toNode":"b6764299b867901f","toSide":"bottom"},
+		{"id":"3a68e2f115fe6010","fromNode":"8007f4459ead933d","fromSide":"top","toNode":"babae8ef450e7439","toSide":"bottom"},
+		{"id":"a79f5f829775a225","fromNode":"3c45239171cac9ca","fromSide":"top","toNode":"babae8ef450e7439","toSide":"bottom"},
+		{"id":"ae5db2e99b9aae97","fromNode":"67e49c0d3806e27f","fromSide":"top","toNode":"89a593ddf136e99c","toSide":"bottom"},
+		{"id":"f0a2b5f0cb32b54d","fromNode":"3f21472492366f2b","fromSide":"top","toNode":"89a593ddf136e99c","toSide":"bottom"}
+	]
+}
