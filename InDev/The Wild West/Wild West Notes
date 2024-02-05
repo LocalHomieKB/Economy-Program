@@ -1,0 +1,55 @@
+"""
+for this i would need:
+consumption events ( consumes food -5 food)
+bandit events (steals food -5 food)
+production ( whiskey making +10 food +20 money)
+leadership ( hire sheriff -10 money bandits skip next days raid)
+population ( endorse a visit from a travelling circus -10 food bandits skip next two raids)
+
+variables food money
+consumption
+bandit
+production
+leadership or population or skip
+
+let’s simply make this small part of the program, that’s it, no more events,
+ no randomising just this simple static little visual text based game.
+"""
+
+
+	◦	use script scheme from economy simulation, use
+     also character generation and a simple economy scheme. 
+     based on The economy  three arrows down to booze, ladies,
+      robberies. Your economy relies on the amount and strength 
+      of these 3 products. Therefore the stronger these 3 are the 
+      stronger your economy, the higher your immigration rate, 
+      lowering these numbers down again. In an ideal world each 
+      person has traits affecting the amount of each he will want.
+       With only 3 each person can have a base and one up and one
+        down for each one based on a dice roll. Something like a 
+        dwarf fortress interface i would like but honestly every 
+        game maker seems like dog shit made for 2d side scrollers 
+        or 3rd person games. I just need a strategy game game maker. 
+        Maybe we could jerry rig a rpg maker game into this.
+         The economy is a figure known as accountant. Each dialogue 
+         choice says the abundance of each product. Too much of 
+         certain ones should bring their own impacts, as well as
+          too little of some. Then the 3 products are represented
+           by another figure each. And then we could think about
+            1 or 2 figures underneath each one. To reduce the
+             feeling of an rpg you could send people on missions, 
+             after which recovery would also be based on the 3 products.
+             At the start it will be easy to meta and it will likely be 
+             very short days, but with more random events it could be
+             better. stage one accountant and all in the bar. He just 
+            works at one of the tables with a ledger in front of him and 
+            other papers. Stage 2 an office for you as the mayor and the
+             accountant and 3 representatives in each of their respective
+              areas e.g. distillery/bar, brothel, bar for robbers
+	◦	Step 1 Download the most compatible RPG maker or GM maker or something else you find for 2d strategy even something like civ ffs. Potentially defold, use something called an ECS, do i need c++ to do this?
+	◦	step 2 Tile set if needed new or find one
+	◦	step 3 Now the accountant design
+	◦	step 4 the three products looks
+	◦	step 5 now dialog for accountant
+	◦	step 6 now dialog for 3 products
+	◦	step 7 scripting with 50 50 chance for an increase in a products abundance .

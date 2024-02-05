@@ -1183,32 +1183,78 @@ import random
 from random import randint
 Food = 10
 Cash = 5
+FOODGAIN = 1
+DAY = 1 
 CURRENTINVESTMENTS = ["SCARECROW", "BARREL"]
-# What happens at 7am
-# Start of game
-print("This is your chance to see what will happen to a wild western town over the course of a day")
-#Next event at 12pm is caravan event
-# Food goes up by 1 for 1 coin
-Food += 1
-Cash -= 1
-#At the same time you can choose to send people to rob a caravan
-CHOICE = input("Your people report a stray caravan, do you send them to rob it?")
-if CHOICE == "Y":
-    SUCCESSAMOUNT = randint(0,2)
-    if SUCCESSAMOUNT == 0:
-        print("Rats, the caravan was as empty as the oafs brain who brought you this idea")
-    if SUCCESSAMOUNT == 1:
-        Food += 1
-        Cash += 1
-        print("The caravan was a meagre haul")
-    if SUCCESSAMOUNT == 2:
-        Food += 2
-        Cash += 2
-        print("The caravan was a great haul, there will be food for plenty days.")
+GAMEACTIVE = True
+EMERGENCY = False
+CHOICE = "N"
+BUILD = False
 
-#The time is now 2pm:
-print(CURRENTINVESTMENTS)
-input("Your henchmen handy with a hammer informs you of various investments in the town")
+# Start of game
+while GAMEACTIVE == True:
+    print("This is your chance to see what will happen to a wild western town over the course of a day")
+    # Start of day events(7AM)
+    print("Day" , (DAY))
+    Food += FOODGAIN
+
+    #Next event at 12pm is caravan event
+    # Food goes up by 1 for 1 coin
+    
+    Food += 1
+    Cash -= 1
+    #At the same time you can choose to send people to rob a caravan
+    CHOICE = input("Your people report a stray caravan, do you send them to rob it?")
+    if CHOICE == "Y":
+        SUCCESSAMOUNT = randint(0,2)
+        if SUCCESSAMOUNT == 0:
+            print("Rats, the caravan was as empty as the oafs brain who brought you this idea")
+        if SUCCESSAMOUNT == 1:
+            Food += 1
+            Cash += 1
+            print("The caravan was a meagre haul")
+        if SUCCESSAMOUNT == 2:
+            Food += 2
+            Cash += 2
+            print("The caravan was a great haul, there will be food for plenty days.")
+
+    #The time is now 2pm:
+    BUILDORDISASTER = randint(1,5)
+    if (BUILDORDISASTER == 1) == True:
+        EMERGENCY = True
+        BUILD = False
+    elif (BUILDORDISASTER > 1 and BUILDORDISASTER < 5):
+        EMERGENCY = False
+        BUILD = True
+    else:
+        EMERGENCY = False
+        BUILD = False
+    if EMERGENCY == True:
+        print("Your town is raided by bandits, how ironic...")
+        Food -= 1
+        Cash -= 1
+    if BUILD == True:
+        print(CURRENTINVESTMENTS[0])
+        print(CURRENTINVESTMENTS[1])
+        print("Your henchmen handy with a hammer informs you of various investments in the town")
+        INVESTMENTCHOICE = input("Which do you choose?")
+        if INVESTMENTCHOICE == 1:
+            print("Upon building the scarecrow a couple people discover some plants nearby")
+            print("You may get some food from these! How quaint.")
+            FOODGAIN += 1
+            CURRENTINVESTMENTS.remove("SCARECROW")
+        elif INVESTMENTCHOICE == 2:
+            print("Upon building some barrels a couple people discover that food in barrels")
+            print("Can't be touched by rodents!")
+            FOODGAIN += 1
+            CURRENTINVESTMENTS.remove("BARREL")
+    #The time is 7pm, Time for some traveller events
+    #This should just be identical to the currentinvestments stuff
+    #The time is 10pm, Time to rest
+    GAMEACTIVE = False
+    #In the future the day limit will be different, meaning that raids are less likely,
+     #build events less often etc
+
 
 """
 FOOD = 30
