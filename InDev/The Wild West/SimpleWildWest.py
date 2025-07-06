@@ -3,18 +3,6 @@
 So the code can be ordered as so:
 UTILITY, POPULATION SPECIFIC, ECONOMY SPECIFIC, SCRIPTING, EXTERNAL ENVIRONMENT SPECIFIC
 Brothel/Food economy should both exist based on these, with lower amounts you could flesh out charactrs
-# """
-# #externaleconomy.py
-# #For simulating the economy around the simulation
-# PERIOD = ("a")
-# TRADERS = randint(2,5) # For a random market x there will exist 2 to 5 traders who have an interest in it:
-# #Shorting it or investing in it may be decided later, this is a visual template.
-# COMMODITIES = randint(2,20) # For a random market x there exists 2 to 20 commodities that can be interacted with.
-# def TIME():
-#     CURRENTTIME = 0
-#     for i in PERIOD:
-#         CURRENTTIME += 1
-"""
 
 # #Natural year by year evolution must be influenced by scripts, events so on
 # #The random events are either in file, or out of file retrieved by open...
@@ -1179,11 +1167,21 @@ print("Your people have 10 days to survive in the wild west... Good Luck")
 # Economy
 # 
 # 
+
+##Interactive part of simulation and setup for the town
 import random
 from random import randint
-Food = 10
-Cash = 5
-FOODGAIN = 1
+BANDITSTRENGTH = 3 #(0 = lowest 3 = highest)
+PEOPLE = 10
+Food = 50
+Cash = 100
+ALCOHOL = 10
+FOODGAIN = 5
+FOODLOSS = 2
+ALCOHOLLOSS = 1
+FOODVALUE = 1
+ALCOHOLVALUE = 4 
+PEOPLEVALUE = 50
 DAY = 1 
 CURRENTINVESTMENTS = ["SCARECROW", "BARREL"]
 GAMEACTIVE = True
@@ -1195,106 +1193,212 @@ BUILD = False
 while GAMEACTIVE == True:
     print("This is your chance to see what will happen to a wild western town over the course of a day")
     # Start of day events(7AM)
-    print("Day" , (DAY))
-    Food += FOODGAIN
-
-    #Next event at 12pm is caravan event
-    # Food goes up by 1 for 1 coin
+    DAYS = 1
+    while DAYS < 2:
+        print("Day" , (DAY))
+            if FOOD >= 5:
+                print("Your people eat")
+                FOOD -= 5
+            else:
+                print("Your people starve")
+                PEOPLE -= 1
+        Food += FOODGAIN
+        print("CURRENT TRADER POSITIONS RELATIVE TO YOU(X IS TRADER, C IS Your town, T and a is other towns")
+        print(":::::::::::::::::::::::::::::::::")
+        print(":::::TXT:::::::CCC::::::::::::AAA")
+        print(":::::::::::::::::::::::::::::::::")
     
-    Food += 1
-    Cash -= 1
-    #At the same time you can choose to send people to rob a caravan
-    CHOICE = input("Your people report a stray caravan, do you send them to rob it?")
-    if CHOICE == "Y":
-        SUCCESSAMOUNT = randint(0,2)
-        if SUCCESSAMOUNT == 0:
-            print("Rats, the caravan was as empty as the oafs brain who brought you this idea")
-        if SUCCESSAMOUNT == 1:
-            Food += 1
-            Cash += 1
-            print("The caravan was a meagre haul")
-        if SUCCESSAMOUNT == 2:
-            Food += 2
-            Cash += 2
-            print("The caravan was a great haul, there will be food for plenty days.")
+        #Next event at 12pm is caravan event
+        # Food goes up by 1kg for 2 dollars
+        
+        Food += 5
+        Cash -= 10
+        #At the same time you can choose to send people to rob a caravan
+        CHOICE = input("Your people report a stray caravan, do you send them to rob it?")
+        if CHOICE == "Y":
+            SUCCESSAMOUNT = randint(0,2)
+            if SUCCESSAMOUNT == 0:
+                print("Rats, the caravan was as empty as the oafs brain who brought you this idea")
+            if SUCCESSAMOUNT == 1:
+                Food += 5
+                Cash += 5
+                print("The caravan was a meagre haul")
+            if SUCCESSAMOUNT == 2:
+                Food += 10
+                Cash += 10
+                print("The caravan was a great haul, there will be food for plenty days.")
+    
+        #The time is now 2pm:
+        BUILDORDISASTER = randint(1,5)
+        if (BUILDORDISASTER == 1) == True:
+            EMERGENCY = True
+            BUILD = False
+        elif (BUILDORDISASTER > 1 and BUILDORDISASTER < 5):
+            EMERGENCY = False
+            BUILD = True
+        else:
+            EMERGENCY = False
+            BUILD = False
+        if EMERGENCY == True:
+            BANDITEVENT = randint(0,1)
+            if BANDITEVENT == 0:
+                print("The bandits raid you")
+                BANDITEVENTSUCCESS = randint(0,2)
+                if BANDITEVENTSUCCESS:
+                    if BANDITEVENTSUCCESS == 2:
+                        print("The bandits succeed in raiding you")
+                        FOOD -= 10
+                        CASH -= 5
+                    else:
+                        BANDITCHOICE = input("You beat back the bandits, do you rob them for food?(Y/N)")
+                        if BANDITCHOICE == ("Y"):
+                            FOOD += 5
+                        else:
+                            print("The defeat of the bandits discourages some from further raiding")
+                            print("They will be back however...")
+                            BANDITSTRENGTH -= 1
+            if BANDITSTRENGTH == 0:
+                print("With the bandits defeated your people can live indefinetly longer without their threat")
+        if BUILD == True:
+            print(CURRENTINVESTMENTS[0])
+            print(CURRENTINVESTMENTS[1])
+            print("Your henchmen handy with a hammer informs you of various investments in the town")
+            INVESTMENTCHOICE = input("Which do you choose?")
+            if INVESTMENTCHOICE == 1:
+                print("Upon building the scarecrow a couple people discover some plants nearby")
+                print("You may get some food from these! How quaint.")
+                FOODGAIN += 3
+                CURRENTINVESTMENTS.remove("SCARECROW")
+            elif INVESTMENTCHOICE == 2:
+                print("Upon building some barrels a couple people discover that food in barrels")
+                print("Can't be touched by rodents!")
+                FOODLOSS -= 1
+                CURRENTINVESTMENTS.remove("BARREL")
+        FOOD -= FOODLOSS
+        print("CURRENT TRADER POSITIONS RELATIVE TO YOU(X IS TRADER, C IS Your town")
+        print(" T and a is other towns, other symbold are only rumoured...")        
+        print(":::::::::W:::::::::::::::::::::::")
+        print(":::::::::::::::::::::::::::::::::")
+        print(":::::TTT:::::::CCC::::::X:::::AAA")
+        print(":::::::::::::::::::::::::::::::::")
+        print("::::::::::::::::::::TRTR:::::::::")
+        choice = input("Send an expedition?")
+        if choice == ("y"):
+            expedition()
+        else:
+            #fuckitidontcare
+        
+    
+        #The time is 7pm, Time for some traveller events
+        #This should just be identical to the currentinvestments stuff
+        #The time is 10pm, Time to rest
+        GAMEACTIVE = False
+        DAYS = 2
+        #In the future the day limit will be different, meaning that raids are less likely,
+         #build events less often etc
 
-    #The time is now 2pm:
-    BUILDORDISASTER = randint(1,5)
-    if (BUILDORDISASTER == 1) == True:
-        EMERGENCY = True
-        BUILD = False
-    elif (BUILDORDISASTER > 1 and BUILDORDISASTER < 5):
-        EMERGENCY = False
-        BUILD = True
+###Uninteractive part of simulation e.g. citizen generation and economy daily changes in prices
+
+####Citizen Generation
+#The random citizen generator is in progress, for now 10 people with their details in square brackets
+#CITIZEN? = [TITLE, NAME, AGE, GENDER, HEIGHT, PERSONALITY]
+CITIZEN1 = [Governor, HAYLE STAR, 30, M, 172, THRIFTY]
+CITIZIEN2 = [Advisor, DAMN DANIEL, 35, M, 176, INTELLIGENT]
+#ETC THIS SHIT SUCKS
+
+
+####ECONOMY
+#For simulating the economy around the town
+PERIOD = (1)
+TRADERS = randint(2,5) # For a random market x there will exist 2 to 5 traders who have an interest in it:
+#Shorting it or investing in it may be decided later, this is a visual template.
+COMMODITIES = randint(2,5) # For a random market x there exists 2 to 20 commodities that can be interacted with.
+#In this case these commodities are subject to change based on what commodities are interacted with by the traders
+
+
+#For now both of these functions are in progress
+def TIME():
+     CURRENTTIME = 0
+     for i in PERIOD:
+         CURRENTTIME += 1
+
+def trader1():
+    TRADERCANCELLED = 0
+    while TRADERCANCELLED != 1:
+        if int(ALCOHOL) > 5:
+            SELLALCOHOL = input("Your advisor begrudgingly offers a sale of some alcohol for cash")
+            print("(2 dollars perlitre")
+            ALCOHOL -= int(SELLALCOHOL)
+            CASH += 2*SELLALCOHOL
+        if FOOD >= 50:
+            SELLFOOD = input("The trader offers a meagre 50 cents per kg of food, how much do you sell?")
+            print("(0 TO CANCEL)")
+            if SELLFOOD =("0"):
+                TRADERCANCELLED = 1
+            SELLFOOD = int(SELLFOOD)
+            else:
+                if SELLFOOD > FOOD:
+                    print("The trader rejects your ridiculous offer and moves on")
+                    TRADERCANCELLED = 1
+                if SELLFOOD = FOOD:
+                    print("Your advisor shudders thinking of how your town will survive with no food")
+                FOOD -= int(SELLFOOD)
+                CASH += float(0.5*SELLFOOD)
+
     else:
-        EMERGENCY = False
-        BUILD = False
-    if EMERGENCY == True:
-        print("Your town is raided by bandits, how ironic...")
-        Food -= 1
-        Cash -= 1
-    if BUILD == True:
-        print(CURRENTINVESTMENTS[0])
-        print(CURRENTINVESTMENTS[1])
-        print("Your henchmen handy with a hammer informs you of various investments in the town")
-        INVESTMENTCHOICE = input("Which do you choose?")
-        if INVESTMENTCHOICE == 1:
-            print("Upon building the scarecrow a couple people discover some plants nearby")
-            print("You may get some food from these! How quaint.")
-            FOODGAIN += 1
-            CURRENTINVESTMENTS.remove("SCARECROW")
-        elif INVESTMENTCHOICE == 2:
-            print("Upon building some barrels a couple people discover that food in barrels")
-            print("Can't be touched by rodents!")
-            FOODGAIN += 1
-            CURRENTINVESTMENTS.remove("BARREL")
-    #The time is 7pm, Time for some traveller events
-    #This should just be identical to the currentinvestments stuff
-    #The time is 10pm, Time to rest
-    GAMEACTIVE = False
-    #In the future the day limit will be different, meaning that raids are less likely,
-     #build events less often etc
-
+        print("The trader reviews your meagre stocks and spares you from his savage prices")
+        TRADERCANCELLED = 1
+def expedition():
+    CURRENTEXPEDITIONCHOICES = [WOLFDEN, TRIBE, TAWTON, ABEL]
+    DESTINATION = input("Where do you send your people?(W,TR,T,A)")
+    if DESTINATION = ("W"):
+        PEOPLE -= 2
+        FOOD += 50
+        CASH += 20
+        print("The meat of the wolves satiate, and their pelts sell for a nice amount,")
+        print("however you lose two people")
+    if DESTINATION = ("TR"):
+        PEOPLE -= 4
+        FOOD += 0
+        CASH += 0
+        print("Your people are taken prisoner, pray they don't come for the town")
+        TRIBEVISIT = True
+    if DESTINATION = ("T"):
+        PEOPLE -= 0
+        FOOD += 1
+        CASH += 5
+        print("Tawton is poor, after robbing a homeless person and scrounging some old food they return")
+    if DESTINATION = ("A"):
+        PEOPLE -= -1
+        FOOD += 5
+        CASH += 5
+        print("The people of Abel are religious, they gift you food and money and send a missionary to stay")
+        print("with you... unfortunately.
+    
+        
 
 """
-FOOD = 30
-MONEY = 50
-PEOPLE = 10
-DAYS = 7
-BANDITSTRENGTH = 3 #(0 = lowest 3 = highest)
 AGE = 0
 Height = 0
-def Citizen(AGE,HEIGHT):
-    AGE = 
+def Citizen():
+    AGE = randint(18,50)
+    GENDER = randint(0,1)
+    if GENDER == 0:
+        GENDER = M
+    if GENDER == 1:
+        GENDER = F
+    #Height + PERSONALITY
+    if GENDER == M:
+        HEIGHT = randint(170,200)
+        PERSONALITY = [AGGRESSIVE]
+    if GENDER == F:
+        HEIGHT = randint(150,180)
+        PERSONALITY = [CARING]
+    
+        
 TOTALCITIZENS = []
 CITIZENSGENERATED = 0
 while CITIZENSGENERATED < 10:
     CITIZENSGENERATED
+"""
 
-while DAYS >= 0:
-        if FOOD >= 5:
-            print("Your people eat")
-            FOOD -= 5
-        else:
-            print("Your people starve")
-            PEOPLE -= 1
-
-        BANDITEVENT = randint(0,1)
-        if BANDITEVENT == 0:
-            print("The bandits raid you")
-            BANDITEVENTSUCCESS = randint(0,2)
-            if BANDITEVENTSUCCESS:
-                if BANDITEVENTSUCCESS == 2:
-                    print("The bandits succeed in stealing your food")
-                    FOOD -= 5
-                else:
-                    BANDITCHOICE = input("You beat back the bandits, do you rob them for food?(Y/N)")
-                    if BANDITCHOICE == ("Y"):
-                        FOOD += 3
-                    else:
-                        print("The defeat of the bandits discourages some from further raiding")
-                        BANDITSTRENGTH -= 1
-        if BANDITSTRENGTH == 0:
-            print("With the bandits defeated your people can live indefinetly longer in the punishing wild west")
-            DAYS = 0 ##
-            """
