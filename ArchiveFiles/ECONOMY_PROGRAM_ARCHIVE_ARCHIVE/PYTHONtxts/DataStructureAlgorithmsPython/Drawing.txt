@@ -1,0 +1,117 @@
+Drawing commands
+
+
+• goto, x, y, width, color
+• circle, radius, width, color
+• beginfill, color
+• endfill
+• penup
+• pendown
+
+Drawing code:
+1 beginfill, black
+2 circle, 20, 1, black
+3 endfill
+4 penup
+5 goto, 120, 0, 1, black
+6 pendown
+7 beginfill, black
+8 circle, 20, 1, black
+9 endfill
+10 penup
+11 goto, 150, 40, 1, black
+12 pendown
+13 beginfill, yellow
+14 goto, -30, 40, 1, black
+15 goto, -30, 70, 1, black
+16 goto, 60, 70, 1, black
+17 goto, 60, 100, 1, black
+18 goto, 90, 100, 1, black
+19 goto, 115, 70, 1, black
+20 goto, 150, 70, 1, black
+21 goto, 150, 40, 1, black
+22 endfill
+
+
+A program to read the above lines from a file line by line
+1 # This imports the turtle graphics module.
+2 import turtle
+3
+4 # The main function is where the main code of the program is written.
+5 def main():
+6 # This line reads a line of input from the user.
+7 filename = input("Please enter drawing filename: ")
+8
+9 # Create a Turtle Graphics window to draw in.
+10 t = turtle.Turtle()
+11 # The screen is used at the end of the program.
+12 screen = t.getscreen()
+13
+14 # The next line opens the file for "r" or reading. "w" would open it for
+15 # writing, and "a" would open the file to append to it (i.e. add to the
+16 # end). In this program we are only interested in reading the file.
+17 file = open(filename, "r")
+18
+19 # The following for loop reads the lines of the file, one at a time
+20 # and executes the body of the loop once for each line of the file.
+21 for line in file:
+22
+23 # The strip method strips off the newline character at the end of the line
+24 # and any blanks that might be at the beginning or end of the line.
+25 text = line.strip()
+26
+27 # The following line splits the text variable into its pieces.
+28 # For instance, if text contained "goto, 10, 20, 1, black" then
+29 # commandList will be equal to ["goto
+30 # splitting text.
+31 commandList = text.split(",")
+32
+33 # get the drawing command
+34 command = commandList[0]
+35
+36 if command == "goto":
+37 # Writing float(commandList[1]) makes a float object out of the
+38 # string found in commandList[1]. You can do simila  cvax r conversion
+39 # between types for int objects.
+40 x = float(commandList[1])
+41 y = float(commandList[2])
+42 width = float(commandList[3])
+43 color = commandList[4].strip()
+44 t.width(width)
+45 t.pencolor(color)
+46 t.goto(x,y)
+47 elif command == "circle":
+48 radius = float(commandList[1])
+49 width = float(commandList[2])
+50 color = commandList[3].strip()
+51 t.width(width)
+52 t.pencolor(color)
+53 t.circle(radius)
+54 elif command == "beginfill":
+55 color = commandList[1].strip()
+56 t.fillcolor(color)
+57 t.begin_fill()
+58 elif command == "endfill":
+59 t.end_fill()
+60 elif command == "penup":
+61 t.penup()
+62 elif command == "pendown":
+63 t.pendown()
+64 else:
+65 print("Unknown command found in file:",command)
+66
+67 #close the file
+68 file.close()
+69
+70 #hide the turtle that we used to draw the picture.
+71 t.ht()
+72
+73 # This causes the program to hold the turtle graphics window open
+74 # until the mouse is clicked.
+75 screen.exitonclick()
+76 print("Program Execution Completed.")
+77
+78
+79 # This code calls the main function to get everything started.
+80 if __name__ == "__main__":
+81 main()
