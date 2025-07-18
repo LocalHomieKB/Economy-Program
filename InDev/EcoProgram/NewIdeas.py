@@ -55,35 +55,38 @@ def script_process(TAXINCOME,INFO,IMMIGRATION_RATE,CURRENTTAXINCOME,POPULATION,W
     if "One" in CHOSEN_SCRIPT:
         CURRENTTAXINCOME = TAXINCOME
         TAXINCOME = CURRENTTAXINCOME + 100000
-        IMMIGRATION_RATE += 0.05
+        IMMIGRATION_RATE += 0.01
         POPULATION += 500
         LITERACY += 0.02
         INFO = (
             "Trade Opportunity!  /"
             "Your Neighbour " + NEIGHBOUR1 + " offers a trade opportunity"
         )
+        print(INFO)
         return INFO, TAXINCOME, IMMIGRATION_RATE # Added returns for related data
     if "Two" in CHOSEN_SCRIPT:
         CURRENTTAXINCOME = TAXINCOME
         TAXINCOME = CURRENTTAXINCOME + 30000
-        IMMIGRATION_RATE += 0.05
+        IMMIGRATION_RATE += 0.01
         POPULATION += 4000
         LITERACY -= 0.02
         INFO = (
             "Trade Opportunity!  /"
             "Your Neighbour " + NEIGHBOUR2 + " offers a trade opportunity"
         )
+        print(INFO)
         return INFO, TAXINCOME, IMMIGRATION_RATE # Added returns for related data
     if "Three" in CHOSEN_SCRIPT:
         CURRENTTAXINCOME = TAXINCOME
         TAXINCOME = CURRENTTAXINCOME + 50000
-        IMMIGRATION_RATE += 0.05
+        IMMIGRATION_RATE += 0.01
         POPULATION += 2000
         LITERACY += 0.01
         INFO = (
             "Trade Opportunity!  /"
             "Your Neighbour " + NEIGHBOUR3 + " offers a trade opportunity"
         )
+        print(INFO)
         return INFO, TAXINCOME, IMMIGRATION_RATE # Added returns for related data
 
 # UNUSED:
@@ -193,6 +196,9 @@ while PROGRAMRUNNING == True:
             TR = str(("Tax Income = ", (TAXINCOME)))
             SALP = str(("Salaries paid this year ", int(TOTAL_SALARIES_PAID)))
             WELP = str(("Welfare paid this year ", int(TOTAL_WELFARE)))
+            LI = str(("Literacy rate this year ", int(LITERACY)))
+            WAP = str(("Working age popua this year ", int(TOTAL_WELFARE)))
+            WELP = str(("Welfare paid this year ", int(TOTAL_WELFARE)))
             FILEINPUTDETERMINED = False
             while FILEINPUTDETERMINED == False:
                 if MODE == "all":
@@ -211,6 +217,5 @@ while PROGRAMRUNNING == True:
                     fp.write(" " + WELP + " " + "\n")           
                 FILEINPUTDETERMINED = True
             fp.write("\n")
-            fp.close() #run time 0.251 seconds, should be quicker, what can we
-            # speed up? File system removal, on the go variable changes
+            fp.close()
         PROGRAMRUNNING = False
