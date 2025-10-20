@@ -7,15 +7,23 @@ Brothel/Food economy should both exist based on these, with lower amounts you co
 # #externaleconomy.py
 # #For simulating the economy around the simulation
 # PERIOD = ("a")
-# TRADERS = randint(2,5) # For a random market x there will exist 2 to 5 traders who have an interest in it:
+#from math import randint
+#TRADERS = randint(2,5) # For a random market x there will exist 2 to 5 traders who have an interest in it:
 # #Shorting it or investing in it may be decided later, this is a visual template.
-# COMMODITIES = randint(2,20) # For a random market x there exists 2 to 20 commodities that can be interacted with.
+#COMMODITYAMOUNT = randint(2,20) # For a random market x there exists 2 to 20 commodities that can be interacted with.
 # def TIME():
 #     CURRENTTIME = 0
 #     for i in PERIOD:
-#         CURRENTTIME += 1
-"""
+#         CURRENTTIME += 1 # unsure wtf this code is ?
+#Market 1 - Grocery Market:
 
+# Without pointers idk how to have a commodity represented by a value as well as name. I'd need two libraries.
+
+#An event. Trader invests in stock of commodity. Fetches the position of the commodity, then fetches the price of the commodity and name. 
+#A fixed list makes this easier. 
+#COMMODITIES = ["Beer", "Whiskey", "Revolvers", "Colts", "Horses", "Wagons"]
+#for x in COMMODITYAMOUNT:
+    
 # #Natural year by year evolution must be influenced by scripts, events so on
 # #The random events are either in file, or out of file retrieved by open...
 # #The Simulation data, to be grouped in integer and decimal     
@@ -81,7 +89,7 @@ Brothel/Food economy should both exist based on these, with lower amounts you co
 
 # Random or pre-defined or self-defined or self-defining trade acts. These will have some arbitrary
 # some free-from effects on public services, resource economy e.t.c. Think "Democracy 2016", HOI4
-focuses. And other Paradox game idea systems
+#focuses. And other Paradox game idea systems
 
 # #SCRIPT SPECIFIC VARIABLES
 # EPIDEMIC = False # If true, the program will run in epidemic mode.
