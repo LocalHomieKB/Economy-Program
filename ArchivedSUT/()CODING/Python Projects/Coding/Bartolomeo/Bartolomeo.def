@@ -1,0 +1,20 @@
+[Info]
+name="Bartolomeo"
+displayname="Bartolomeo"
+versiondate=25/06/2019
+mugenversion=1.0
+author="Kennedy Lima"
+pal.defaults=
+[Files]
+sprite=Bartolomeo.sff
+sound=Bartolomeo.snd
+anim=Bartolomeo.air
+cmd=Bartolomeo.cmd
+cns=Bartolomeo.cns
+st=Bartolomeo.cns
+stcommon=common1.cns
+pal1=PALETA.act
+st1=IA.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

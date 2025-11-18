@@ -1,0 +1,613 @@
+; Inteligencia Artificial - Inicio
+
+[Statedef 9999]
+anim = 9999
+ctrl = 0
+
+[State 9999, 0]
+type = Turn
+trigger1 = facing != parent, facing
+
+[State 9999, 1]
+type = Varset
+trigger1 = 1
+var(9) = parent, var(9)
+
+[State 9999, 2]
+type = ParentVarSet
+triggerall = parent, RoundState = 2
+trigger1 = parent, command = "x"
+trigger2 = parent, command = "y"
+trigger3 = parent, command = "z"
+trigger4 = parent, command = "a"
+trigger5 = parent, command = "holdfwd"
+trigger6 = parent, command = "holdback"
+trigger7 = parent, command = "holdup"
+trigger8 = parent, command = "holddown"
+var(9) = 1
+
+[State 9999, 3]
+type = ParentVarSet
+triggerall = parent, RoundState = 2
+trigger1 = (command = "x" && parent, command = "x")
+trigger2 = (command = "y" && parent, command = "y")
+trigger3 = (command = "z" && parent, command = "z")
+trigger4 = (command = "a" && parent, command = "a")
+trigger5 = (command = "holdfwd" && parent, command = "holdfwd")
+trigger6 = (command = "holdback" && parent, command = "holdback")
+trigger7 = (command = "holdup" && parent, command = "holdup")
+trigger8 = (command = "holddown" && parent, command = "holddown")
+var(9) = -1
+
+[State 9999, 4]
+type = varset
+trigger1 = var(9) != parent, var(9)
+V = 47
+value = 0
+
+[State 9999, 5]
+type = VarAdd
+trigger1 = var(9) = parent, var(9)
+V = 47
+value = 1
+
+[State 9999, 6]
+type = Destroyself
+trigger1 = parent, var(9) = -1
+trigger1 = var(47) >= 23
+trigger2 = parent, var(9) = 2
+trigger2 = var(47) >= 23
+trigger3 = RoundState = 3
+
+;-------------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;-------------------------------------------------------------------------------
+[Statedef -2]
+
+
+
+
+
+
+;===============================================================================
+;---------------- Inteligencia Artificial  -------------------------------------
+;===============================================================================
+;[State -2, AI_Check] ; El ayudante siempre presente
+;type = Helper ; Ayudante
+;trigger1 = NumHelper(9999) = 0 ; No se repitira si esta presente ya
+;trigger1 = var(9) = 0 ; Variable que actúa como interruptor
+;trigger1 = RoundState = 2 ; Solo activado en combate
+;name = "AI activada" ; Nombre de la AI
+;id = 9999 ; Su identificador
+;pos = 1000, 1000 ; posición en su nivel muy alta
+;stateno = 9999 ; Te manda al stateno 9999
+;helpertype = normal ; Helper tipo normal
+;keyctrl = 1
+
+
+
+; Con esto le digo cuando está activada
+; en este caso, cuando la variable 9 es 1
+;[State -2, AI prueba]
+;type = VarSet ; Tipo variable
+;trigger1 = command ="AI Prueba" ; Nombre del cmd
+;var(9) = 1 ; Pone la variable a 9 a 1
+
+;Con esto veo si la IA esta activada en el Debug mode
+[State -3,3]
+type = DisplayToClipboard ; Pone el nombre en el debug
+trigger1 = var(9)=1 ; Condición para que ponga el texto
+text = "La Inteligencia Artificial funca" ; Nombre del texto
+
+
+; Con esto le digo cuando está desactivada
+; en este caso, cuando la variable 9 es 0
+;[State -3, AI desactivarlo]
+;type = VarSet ; Tipo variable
+;trigger1 = command ="AI desactivado" ; Nombre del cmd
+;var(9) = 0
+
+;Con esto veo si la IA esta desactivada en el Debug mode
+[State -3,3]
+type = DisplayToClipboard ; Pone el nombre en el debug
+trigger1 = var(9)=0 ; Condición para que ponga el texto
+text = "La Inteligencia Artificial desactivada" ; Nombre del texto
+
+;---------------------------------------------------------
+
+
+; IA de Defensa
+[State -3, IA de Defensa]
+type = ChangeState
+value = 132
+triggerall = p2movetype = A || (enemy, NumProj >= 1) ;
+triggerall = P2bodydist X <= 40 || (enemy, NumProj >= 1)
+triggerall = statetype = A ; Activo unicamente si estas en el Aire
+triggerall = random <= 600 ; Aquí le ponemos un poco de aleteoriedad
+triggerall = var(9) = 1 ; La variable que activa la AI
+triggerall = ctrl
+triggerall = stateno != 132
+trigger1 = p2statetype = A
+trigger2 = (enemy, NumProj >= 1)
+
+[State -3, IA de Defensa]
+type = ChangeState
+value = 130
+triggerall = p2movetype = A || (enemy, NumProj >= 1)
+triggerall = P2bodydist X <= 40 || (enemy, NumProj >= 1)
+triggerall = random <= 400
+triggerall = statetype != A
+triggerall = var(9) = 1
+triggerall = ctrl
+triggerall = stateno != 120
+trigger1 = p2statetype = S
+trigger2 = (enemy, NumProj >= 1)
+
+
+
+;===============================================================================
+;-- Inteligencia Artificial ----------------------------------------------------
+;===============================================================================
+
+;----------------------------------------
+;Supers
+
+
+
+[State -3, Shin Sekai Strike]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = power >= 2000
+triggerall = statetype != A
+trigger1 = ctrl
+trigger1 = random = [10,700]
+trigger2 = (stateno = 200) && (Movecontact) && random = [10,700]
+trigger3 = (stateno = 201) && (Movecontact) && random = [10,700]
+trigger4 = (stateno = 210) && (Movecontact) && random = [10,700]
+trigger5 = (stateno = 211) && (Movecontact) && random = [10,700]
+trigger6 = (stateno = 220) && (Movecontact) && random = [10,700]
+trigger7 = (stateno = 225) && (Movecontact) && random = [10,700]
+trigger8 = (stateno = 230) && (Movecontact) && random = [10,700]
+trigger9 = (stateno = 235) && (Movecontact) && random = [10,700]
+trigger10 = (stateno = 1110) && (Movecontact) && random = [10,700]
+trigger11 = (stateno = 1121) && (Movecontact) && random = [10,700]
+trigger12 = (stateno = 1310) && (Movecontact) && random = [10,700]
+trigger13 = (stateno = 1400) && (time > 25)  && random = [10,700]
+trigger14 = (stateno = 1700) && (time > 34) && random = [500,600]
+value = 3300
+
+
+
+
+[State -3, Heaven Splitter - Stand]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = power >= 1000
+triggerall = statetype = A
+trigger1 = ctrl
+trigger1 = random = [100,500]
+trigger2 = (stateno = 600) && (Movecontact) && random = [10,700]
+trigger3 = (stateno = 610) && (Movecontact) && random = [10,700]
+trigger4 = (stateno = 620) && (Movecontact) && random = [10,700]
+trigger5 = (stateno = 625) && (Movecontact) && random = [10,700]
+trigger6 = (stateno = 630) && (Movecontact) && random = [10,700]
+trigger7 = (stateno = 635) && (Movecontact) && random = [10,700]
+trigger8 = (stateno = 1630) && (Movecontact) && random = [10,700]
+value = 3100
+
+
+[State -3, Heaven Splitter - Stand]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = numhelper(3050) = 0
+triggerall = power >= 1000
+triggerall = statetype != A
+trigger1 = ctrl
+trigger1 = random = [100,500]
+trigger1 = p2bodydist x > 100
+trigger2 = (stateno = 200) && (Movecontact) && random = [10,700]
+trigger3 = (stateno = 201) && (Movecontact) && random = [10,700]
+trigger4 = (stateno = 210) && (Movecontact) && random = [10,700]
+trigger5 = (stateno = 211) && (Movecontact) && random = [10,700]
+trigger6 = (stateno = 220) && (Movecontact) && random = [10,700]
+trigger7 = (stateno = 225) && (Movecontact) && random = [10,700]
+trigger8 = (stateno = 230) && (Movecontact) && random = [10,700]
+trigger9 = (stateno = 235) && (Movecontact) && random = [10,700]
+trigger10 = (stateno = 1110) && (Movecontact) && random = [10,700]
+trigger11 = (stateno = 1121) && (Movecontact) && random = [10,700]
+trigger12 = (stateno = 1310) && (Movecontact) && random = [10,700]
+trigger13 = (stateno = 1400) && (time > 25)  && random = [10,700]
+trigger14 = (stateno = 1700) && (time > 34) && random = [500,600]
+value = 3000
+
+
+[State -3, Haoshoku Haki]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = power >= 1000
+triggerall = statetype != A
+trigger1 = ctrl
+trigger1 = random = [10,700]
+trigger1 = P2bodydist x < 100
+trigger2 = (stateno = 200) && (Movecontact) && random = [10,700]
+trigger3 = (stateno = 201) && (Movecontact) && random = [10,700]
+trigger4 = (stateno = 210) && (Movecontact) && random = [10,700]
+trigger5 = (stateno = 211) && (Movecontact) && random = [10,700]
+trigger6 = (stateno = 220) && (Movecontact) && random = [10,700]
+trigger7 = (stateno = 225) && (Movecontact) && random = [10,700]
+trigger8 = (stateno = 230) && (Movecontact) && random = [10,700]
+trigger9 = (stateno = 235) && (Movecontact) && random = [10,700]
+trigger10 = (stateno = 1110) && (Movecontact) && random = [10,700]
+trigger11 = (stateno = 1121) && (Movecontact) && random = [10,700]
+trigger12 = (stateno = 1310) && (Movecontact) && random = [10,700]
+trigger13 = (stateno = 1400) && (time > 25)  && random = [10,700]
+trigger14 = (stateno = 1700) && (time > 34) && random = [500,600]
+value = 3100
+
+
+
+
+;----------------------------------
+;combos normales
+
+[State -3, correr adelante]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = vel x = 0 ;P2bodydist X >= 50
+triggerall = ctrl
+triggerall = stateno != 100
+triggerall = stateno != 105
+triggerall = statetype != A
+trigger1 = P2bodydist X >= 100 && random = [10,700]
+value = 100
+
+
+;-------------------------------------------------------------
+[State -3, Stand Saber 1]
+type = ChangeState
+triggerall = stateno != 100
+triggerall = P2bodydist X <= 50
+triggerall = statetype != A
+triggerall = var(9) = 1
+trigger1 = ctrl
+trigger1 = random = [200,300]
+value = 200
+[State -3, Stand Saber 2]
+type = ChangeState
+triggerall = statetype != A
+triggerall = var(9) = 1
+trigger1 = (stateno = 200) && movecontact
+value = 201
+
+
+[State -3, Kick 1st Hit]
+type = ChangeState
+triggerall = stateno != 100
+triggerall = P2bodydist X <= 50
+triggerall = statetype != A
+triggerall = var(9) = 1
+trigger1 = ctrl
+trigger1 = random = [200,300]
+trigger2 = (stateno = 200) && movecontact && random = [10,700]
+trigger3 = (stateno = 201) && movecontact && random = [10,700]
+value = 210
+[State -3, Kick 2nd Hit]
+type = ChangeState
+triggerall = stateno != 100
+triggerall = P2bodydist X <= 50
+triggerall = statetype != A
+triggerall = var(9) = 1
+trigger1 = ctrl
+trigger1 = random = [200,300]
+trigger2 = (stateno = 200) && movecontact && random = [10,700]
+trigger3 = (stateno = 201) && movecontact && random = [10,700]
+trigger4 = (stateno = 210) && movecontact && random = [10,700]
+value = 211
+
+
+
+[State -3, Haushoku Haki - Stand]
+type = ChangeState
+triggerall = statetype != A
+triggerall = Numhelper(1010) = 0
+triggerall = var(9) = 1
+trigger1 = ctrl
+trigger1 = p2bodydist x < 50 && random = [200,300]
+trigger2 = (stateno = 200) && movecontact && random = [10,700]
+trigger3 = (stateno = 201) && movecontact && random = [10,700]
+trigger4 = (stateno = 210) && movecontact && random = [10,700]
+trigger5 = (stateno = 211) && movecontact && random = [10,700]
+value = ifelse(var(14)=1,225,220)
+;--------------------------------------------
+
+[State -3, Haushoku Haki Air]
+type = ChangeState
+triggerall = var(9) = 1  && statetype = A
+triggerall = Numhelper(1010) = 0
+trigger1 = ctrl
+trigger1 = random = [200,300]
+trigger2 = stateno = 600 && movecontact && random = [10,700]
+trigger3 = stateno = 610 && movecontact && random = [10,700]
+value = ifelse(var(14)=1,625,620)
+
+[State -3, combos saltando]
+type = ChangeState
+triggerall = var(9) = 1  && statetype = A
+trigger1 = ctrl
+trigger1 = random = [200,300]
+trigger2 = stateno = 600 && movecontact && random = [10,700]
+value = 610
+
+[State -3, combos saltando]
+type = ChangeState
+triggerall = stateno != 100
+triggerall = statetype = A
+triggerall = var(9) = 1
+trigger1 = ctrl
+trigger1 = random = [200,300]
+value = 600
+
+
+[State -3, golpes corriendo]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = stateno = 100
+trigger1 = time > 50+(random%40) && random = [10,700]
+value = ifelse(random > 500, 310, ifelse(random < 200, 300, 220))
+
+
+
+;===============================================================================
+;---------------- Specials -----------------------------------------------------
+;===============================================================================
+;Specials
+[State -3, Red Hair Assault]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = ctrl && statetype != A
+triggerall = stateno != 100
+trigger1 = ctrl
+trigger1 = P2bodydist X >= 50 && random = [200,300]
+trigger2 = (stateno = 200) && (Movecontact) && random = [500,600]
+trigger3 = (stateno = 201) && (Movecontact) && random = [500,600]
+trigger4 = (stateno = 210) && (Movecontact) && random = [500,600]
+trigger5 = (stateno = 211) && (Movecontact) && random = [500,600]
+trigger6 = (stateno = 220) && (Movecontact) && random = [500,600]
+trigger7 = (stateno = 225) && (Movecontact) && random = [500,600]
+trigger8 = (stateno = 230) && (Movecontact) && random = [500,600]
+trigger9 = (stateno = 235) && (Movecontact) && random = [500,600]
+value = 1100
+[State -3,Red Hair Assault - to Saber Trust/Saberquake/Chaoz Slash]
+type = ChangeState
+triggerall = var(9) = 1
+trigger1 = (stateno = 1100) && (time > 35)
+value = ifelse(random < 300,1110,ifelse(random> 600, 1130,1120))
+
+
+[State -3, Chaoz Slash/Pirate Catch]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = ctrl
+triggerall = stateno != 100
+triggerall = statetype != A
+trigger1 = ctrl
+trigger1 = P2dist y <= -10 && random = [200,300]
+trigger2 = (stateno = 200) && (Movecontact) && random = [500,600]
+trigger3 = (stateno = 201) && (Movecontact) && random = [500,600]
+trigger4 = (stateno = 210) && (Movecontact) && random = [500,600]
+trigger5 = (stateno = 211) && (Movecontact) && random = [500,600]
+trigger6 = (stateno = 220) && (Movecontact) && random = [500,600]
+trigger7 = (stateno = 225) && (Movecontact) && random = [500,600]
+trigger8 = (stateno = 230) && (Movecontact) && random = [500,600]
+trigger9 = (stateno = 235) && (Movecontact) && random = [500,600]
+trigger10 = (stateno = 1110) && (Movecontact) && random = [500,600]
+trigger11 = (stateno = 1121) && (Movecontact) && random = [500,600]
+trigger12 = (stateno = 1310) && (Movecontact) && random = [500,600]
+trigger13 = (stateno = 1400) && (time > 25) && random = [500,600]
+trigger14 = (stateno = 1700) && (time > 34) && random = [500,600]
+value = ifelse(random >550,1200,1500)
+
+
+
+
+[State -3, Tatami Gaeshi]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = statetype != A
+triggerall = stateno != 100
+triggerall = numhelper(1450) = 0
+trigger1 = ctrl
+trigger1 = P2bodydist X <= 100 && random = [200,300]
+trigger2 = (stateno = 200) && (Movecontact) && random = [500,600]
+trigger3 = (stateno = 201) && (Movecontact) && random = [500,600]
+trigger4 = (stateno = 210) && (Movecontact) && random = [500,600]
+trigger5 = (stateno = 211) && (Movecontact) && random = [500,600]
+trigger6 = (stateno = 220) && (Movecontact) && random = [500,600]
+trigger7 = (stateno = 225) && (Movecontact) && random = [500,600]
+trigger8 = (stateno = 230) && (Movecontact) && random = [500,600]
+trigger9 = (stateno = 235) && (Movecontact) && random = [500,600]
+trigger10 = (stateno = 1110) && (Movecontact) && random = [500,600]
+trigger11 = (stateno = 1121) && (Movecontact) && random = [500,600]
+value = 1400
+
+
+
+[State -1, Rush Double Kick]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = statetype != A
+triggerall = stateno != 100
+trigger1 = ctrl
+trigger1 = P2bodydist X >= 100 && random = [200,300]
+trigger2 = (stateno = 200) && (Movecontact) && random = [500,600]
+trigger3 = (stateno = 201) && (Movecontact) && random = [500,600]
+trigger4 = (stateno = 210) && (Movecontact) && random = [500,600]
+trigger5 = (stateno = 211) && (Movecontact) && random = [500,600]
+trigger6 = (stateno = 220) && (Movecontact) && random = [500,600]
+trigger7 = (stateno = 225) && (Movecontact) && random = [500,600]
+trigger8 = (stateno = 230) && (Movecontact) && random = [500,600]
+trigger9 = (stateno = 235) && (Movecontact) && random = [500,600]
+trigger10 = (stateno = 1110) && (Movecontact) && random = [500,600]
+trigger11 = (stateno = 1121) && (Movecontact) && random = [500,600]
+trigger12 = (stateno = 1310) && (Movecontact) && random = [500,600]
+trigger13 = (stateno = 1400) && (time > 25) && random = [500,600]
+trigger14 = (stateno = 1700) && (time > 34) && random = [500,600]
+value = 1600
+[State -3,Rush Double Kick - Back Stab]
+type = ChangeState
+triggerall = var(9) = 1
+trigger1 = (stateno = 1620) && (time > 5)
+value = 1630
+
+
+[State -3, Shotgun]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = statetype != A
+triggerall = stateno != 100
+trigger1 = ctrl
+trigger1 = P2bodydist X >= 150 && random = [200,300]
+trigger2 = (stateno = 200) && (Movecontact) && random = [500,600]
+trigger3 = (stateno = 201) && (Movecontact) && random = [500,600]
+trigger4 = (stateno = 210) && (Movecontact) && random = [500,600]
+trigger5 = (stateno = 211) && (Movecontact) && random = [500,600]
+trigger6 = (stateno = 220) && (Movecontact) && random = [500,600]
+trigger7 = (stateno = 225) && (Movecontact) && random = [500,600]
+trigger8 = (stateno = 230) && (Movecontact) && random = [500,600]
+trigger9 = (stateno = 235) && (Movecontact) && random = [500,600]
+trigger10 = (stateno = 1110) && (Movecontact) && random = [500,600]
+trigger11 = (stateno = 1121) && (Movecontact) && random = [500,600]
+trigger12 = (stateno = 1310) && (Movecontact) && random = [500,600]
+trigger13 = (stateno = 1400) && (time > 25) && random = [500,600]
+value = 1700
+
+[State -3, Haki Pow Up]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = statetype != A
+triggerall = stateno != 100
+triggerall = var(14) = 0
+triggerall = numhelper(1840) = 0
+trigger1 = ctrl
+trigger1 = P2bodydist X >= 100 && random = [200,300]
+value = 1800
+
+
+
+
+
+[State -1, Haushoku Haki - Anti Combos]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = numhelper(1020) = 0
+triggerall = numhelper(1010) = 0
+triggerall = power >= 1000
+triggerall = stateno = [5000,5019]
+trigger1 = movetype = H
+trigger1 = ctrl = 0 && random = [500,600]
+value = ifelse(var(14)=1,235,230)
+
+
+
+[State -1, Haushoku Haki - Anti Combos]
+type = ChangeState
+triggerall = var(9) = 1
+triggerall = numhelper(1020) = 0
+triggerall = numhelper(1010) = 0
+triggerall = power >= 1000
+triggerall = stateno = [5020,5080]
+trigger1 = movetype = H
+trigger1 = ctrl = 0
+value = ifelse(var(14)=1,635,630)
+
+
+[State -3, Revenge Counter]
+type = ChangeState
+triggerall = p2movetype = A || (enemy, NumProj >= 1)
+triggerall = P2bodydist X <= 40 || (enemy, NumProj >= 1)
+triggerall = random <= 400
+triggerall = statetype != A
+triggerall = var(9) = 1
+triggerall = ctrl
+triggerall = stateno != 120
+trigger1 = p2statetype = S && random = [10,700]
+trigger2 = (enemy, NumProj >= 1)
+value = 1300
+
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(9) = 1 && p2statetype = L
+v = 9
+value = 2
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(9) = 2 && p2statetype != L
+v = 9
+value = 1
+
+[State -3, terminación]
+type = Varset
+trigger1 =  p2life = 0
+trigger2 = win
+trigger3 = roundstate = 3
+v =  9
+value = 0
+;ignorehitpause =
+;persistent =
+
+;===============================================================================
+;---------------------------Estados usados Siempre------------------------------
+;===============================================================================
+[Statedef -3]
+
+
+[State -3, VarSet - Haki POW UP]
+type = VarSet
+trigger1 = numhelper(1840) = 1
+v = 14
+value = 1
+
+
+[State -3, VarSet - Haki POW UP - Desactivación]
+type = VarSet
+trigger1 = numhelper(1840) = 0
+v = 14
+value = 0
+
+
+[State -3, AttackMulSet]
+type = AttackMulSet
+trigger1 = var(14) = 1
+value = 1.5
+
+
+[State -3, AttackMulSet]
+type = AttackMulSet
+trigger1 = var(14) = 0
+value = 1
+
+
+[State -3, Haki POW UP Aura]
+type = Explod
+triggerall = var(14) = 1
+trigger1 = time%6 = 0
+anim = 7024
+ID =  7024
+pos = -10+(random%20),0-(random%20)
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+supermove = 1
+pausemove =1
+scale = 0.25, 0.25
+sprpriority = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 0

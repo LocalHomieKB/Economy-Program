@@ -1,0 +1,13 @@
+FT Calcium chloride : brick red
+FT Potassium chloride : lilac
+FT Copper chloride : green
+FT Barium chloride : yellow/apple green
+FT Barium chloride : yellow/apple green
+FT Lithium chloride : crimson
+HT Chloride 1- : white precipitate
+HT Bromide 1- : cream precipitate
+HT Iodide 1- : yellow precipitate
+SHT Iron 2+ : green precipitate
+SHT Iron 3+ : brown precipitate
+SHT Copper 2+ : blue precipitate
+SHT Magnesium 2+ : white precipitate

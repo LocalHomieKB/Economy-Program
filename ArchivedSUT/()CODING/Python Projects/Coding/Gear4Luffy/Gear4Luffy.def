@@ -1,0 +1,19 @@
+[Info]
+name="Gear 4 Luffy"
+displayname="Gear 4 Luffy"
+versiondate=10/15/16
+mugenversion=14,04,2001
+author="ivaizen"
+pal.defaults=1,2,3,4,5
+[Files]
+sprite=Gear4Luffy.sff
+sound=Gear4Luffy.snd
+anim=Gear4Luffy.air
+cmd=Gear4Luffy.cmd
+cns=Gear4Luffy.cns
+st=Gear4Luffy.cns
+stcommon=common1.cns
+pal1=Gear4Luffy.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=
