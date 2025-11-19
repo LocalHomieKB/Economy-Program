@@ -1,3 +1,4 @@
 {
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
+    "cmake.sourceDirectory": "C:/Users/kbudz/Downloads/glfw-3.4/glfw-3.4"
 }
