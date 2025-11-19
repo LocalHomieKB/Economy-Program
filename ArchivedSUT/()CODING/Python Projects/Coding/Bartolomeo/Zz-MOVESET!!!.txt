@@ -1,0 +1,27 @@
+Lista de Movimientos.
+
+- Taunt                 = Start
+
+** Normals:
+
+- Combo 1               = a
+- Combo 2               = b
+-Punch                  = c
+         
+
+** Specials:
+
+
+      
+- Down Special          = D,c             
+
+- Air Atacks            = a,b or c
+
+
+** Supers:
+ 
+- Bazooka Rush          = D,DF,F,b        Power = 1000
+- Barrier Crash         = D,DF,F,c        Power = 500
+- Bari Bari no Pistol   = D,DF,F,a        Power = 3000
+
+Charge = Start

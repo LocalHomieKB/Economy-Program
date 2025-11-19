@@ -1,0 +1,22 @@
+[Info]
+name="Fujitora"
+displayname="Fujitora"
+versiondate=31,03,2019
+mugenversion=1.0
+author="Mugen n5"
+pal.defaults=1
+[Files]
+sprite=Fujitora.sff
+sound=Fujitora.snd
+anim=Fujitora.air
+cmd=Fujitora.cmd
+cns=Fujitora.cns
+st=Fujitora.cns
+stcommon=common1.cns
+pal1=Fujitora.act
+st1=Fujitora_Specials.cns
+st2=Fujitora_Supers.cns
+st3=IA.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

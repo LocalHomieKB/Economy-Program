@@ -1,0 +1,35 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Shanks"
+displayname ="Shanks"
+versiondate =
+mugenversion = 
+author ="Edited By CowG"
+pal.defaults =1,2,3,4,5,6
+
+[Files]
+sprite =Shanks.sff
+anim =Shanks.air
+sound =Shanks.snd
+cmd =Shanks.cmd
+cns =Shanks.cns
+stcommon =common1.cns
+st =Shanks.cns
+pal1=Shanks01.act
+pal2=Shanks02.act
+pal3=Shanks03.act
+pal4=Shanks04.act
+pal5=Shanks05.act
+pal6=Shanks06.act
+st1=IA.cns
+st2=Especiales.cns
+st3=Supers.cns
+
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

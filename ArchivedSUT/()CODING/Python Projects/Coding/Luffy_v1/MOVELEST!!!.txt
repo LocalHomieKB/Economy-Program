@@ -1,0 +1,38 @@
+Base:
+Button:
+Move:D,F,U,B
+Attack:
+a: punch
+b: stamp
+c: gum gum pistol
+Basic combo:
+1.a+a+a+c gum gum gattling and bullet
+2.D+B+b gum gum axe
+3.D+F+c gum gum bazooka
+4.D+F+a gum gum rifle
+5.D+B+c gum gum rocket keep ( can do with gear 2 )
+6.D+F+b gum gum rocket ( can do with gear 2 ) 
+7.D+B+a gum gum baloon
+In the air:
+1.a+a gum gum gattling air ( can do with gum gum rocket )
+2.b gum gum stamp air
+3.D+B+b gum gum whip air ( can do with gum gum rocket )
+4.c gum gum whip air
+5.D+F+c gum gum bazooka air
+6.D+B+c gum gum rocket air
+Skill base:
+1.D+B+D+B+b gum gum super axe 1000 power
+2.D+F+D+F+c gum gum flail 1000 power
+3.D+F+D+F+a gum gum storm 2000 power
+Gear 2: D+B+D+B+a 2000 power
+a. punch
+b. gum gum jet stamp
+c.gum gum jet pistol
+Basic combo:
+1.a+a+a gum gum jet gattling
+2.D+B+b gum gum jet axe
+3.D+F+c gum gum jet bazooka ( can be hold )
+Skill gear 2:
+D+B+D+B+c gum gum jet gattling full 2000 power
+GEAR 3:
+D+B+D+B+c super 3000 power
