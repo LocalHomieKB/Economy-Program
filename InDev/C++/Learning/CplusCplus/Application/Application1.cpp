@@ -48,91 +48,43 @@ cout << "Evening(6pm)" << endl;
 // Results of exploration, new visitors
 cout << "Middnight(12pm)" << endl;
 // this segment stretching to early morning are for wildlife attacks and bandit raids
-/*
-# This is the order the code needs to be in, at least this early in.
-# 	1.	movement of people in and out of town 7am
-# 	2.	movement within town 7am
-# 	3.	movement of people within town out of town 7am
-# 	4.	Caravan events 7-12pm
-# 	5.	Item gathering events 7-2pm
-# 	6.	Town planning(building + emergency events)2-5pm
-# 	7.	final movement out of town 2-7pm
-# 	8.	Final movement into town 5-10pm
-*/
 
-}
-    //food loop check
-    
-    //danger
-    //people
-    //events
-    //trade
-    //events
-    //population growth(2.4times base at most)
-    //one unit of food per person at most
-    //Rival towns
-    //criminals
-    //bounties
-    //AI Caravans
-    //  Its rules:
-        
+vector<string> COMODITY_LIST = {"Beer", "Whiskey", "Revolvers", "Colts", "Horses", "Wagons"};
+vector<int> COMMODITY_LIST_PRICE = {1,2,1,2,1,2}; 
+//^//this list is proportional to commodities list from left to right
+string NEIGHBOUR_TOMB = "Tombstone";
+string NEIGHBOUR_DENIS = "St Denis";
+string NEIGHBOUR_ARMA = "Armadillo";
 
-#COM_LIST = ["Beer", "Whiskey", "Revolvers", "Colts", "Horses", "Wagons"]
-#COM_PRICE = [1,2,1,2,1,2]#this list is proportional to commodities list from left to right
+//Population
+//Important buildings
+//Production
+//Commodites in demand
+
+// SCRIPT SPECIFIC VARIABLES
+bool EPIDEMIC = {false}; // If true, the program will run in epidemic mode.
+int EPIDEMIC_RECOVERY = {3}; 
+//The town is boosted for this many turns after it ends
+int EPIDEMIC_COUNTDOWN = {3}; 
+// Each epidemic will last this many days, with the countdown starting after 
+// the first year
+
+//PRE_DEFINED_SCRIPTS = [A1,A2,A3,A4]
+string SCRIPTS_PREDEF_1 ="TOMBSTONE_TRADE_1";
+vector<int> SCRIPTS_PREDEF_1_EFFECTS = int POPULATION += 1, int CASH_INCOME += 1, int COLTPRICE += 1, int TOMBTRADEDEMAND += 1 ;
+//Not sure how to do this, when script one occurs, i want pop and cash income to go up, price of colts which tombstone will buy
+//to go up, and the likelihood of a tombstone trader to buy colts to go up.
+//We could as shown below with an if for each script, cons - takes longer to code and more lengthy.
+string SCRIPTS_PREDEF_2 ="STDENIS_TRADE_1";
+string SCRIPTS_PREDEF_3 ="ARMADILLO_TRADE_1";
+string SCRIPTS_PREDEF_4 ="TownScandal";
+//SEMI_PRE_DEFINED_SCRIPTS = [B1,B2,B3,B4]
+string SCRIPTS_SEMIPREDEF_1 = "Epidemic";
+string SCRIPTS_SEMIPREDEF_2 = "TaxRateChange";
+string SCRIPTS_SEMIPREDEF_3 = "GoodYear";
+string SCRIPTS_SEMIPREDEF_4 = BadYear";
 
 
-
-# #This code generates a neighbour, stores, assigns, removes from list
-# NEIGHBOURLIST = ["Tombstone", "St Denis"]
-# NEIGHBOURLISTAMOUNT = int(len(NEIGHBOURLIST))
-# NEIGHBOUR1 = 0
-# NEIGHBOUR2 = 0
-# NEIGHBOUR3 = 0
-# ##TURN NEIGHBOUR INTO A FUNCTION THAT RETURNS NEIGHBOUR
-# NEIGHBOURCHOSEN = randint(0,NEIGHBOURLISTAMOUNT-1)
-# STOREDNEIGHBOUR = NEIGHBOURLIST[NEIGHBOURCHOSEN]
-# NEIGHBOUR1 = str(STOREDNEIGHBOUR)
-# del NEIGHBOURLIST[NEIGHBOURCHOSEN]
-# NEIGHBOURLISTAMOUNT = int(len(NEIGHBOURLIST))
-# NEIGHBOURCHOSEN = randint(0,NEIGHBOURLISTAMOUNT-1)
-# STOREDNEIGHBOUR = NEIGHBOURLIST[NEIGHBOURCHOSEN]
-# NEIGHBOUR2 = STOREDNEIGHBOUR
-# del NEIGHBOURLIST[NEIGHBOURCHOSEN]
-# NEIGHBOURLISTAMOUNT = int(len(NEIGHBOURLIST))
-# NEIGHBOURCHOSEN = randint(0,NEIGHBOURLISTAMOUNT-1)
-# STOREDNEIGHBOUR = NEIGHBOURLIST[NEIGHBOURCHOSEN]
-# NEIGHBOUR3 = STOREDNEIGHBOUR
-# del NEIGHBOURLIST[NEIGHBOURCHOSEN]
-# NEIGHBOURLISTAMOUNT = int(len(NEIGHBOURLIST))
-# 
-# Additionally the following features would revolutionise the program:
-# Industrial performance
-# Residential performance
-# Construction index
-# Resource economy (Each country,city,region analysed shall be defined by three tangible resources:
-# Beyond which population factors in but isn't a part of. For a country like Greece it would be:
-# Fish? Cars? fraud?
-
-# #SCRIPT SPECIFIC VARIABLES
-# EPIDEMIC = False # If true, the program will run in epidemic mode.
-# EPIDEMICRECOVERY = False # After the epidemic ends this activates, and enables an upturn
-# EPIDEMICCOUNTDOWN = 3 # Each epidemic will last this many years, with the countdown starting after 
-# #the first year
-# """""
-# def script_process(TAXINCOME):
-#     A1="NeighbourTrade1"
-#     A2="NeighbourTrade2"
-#     A3="NeighbourTrade3"
-#     A4="GovernmentScandal"
-#     B1="Epidemic"
-#     B2="TaxRateChange"
-#     B3="GoodYear"
-#     B4="BadYear"
-#     PRE_DEFINED_SCRIPTS = [A1,A2,A3,A4]
-#     SEMI_PRE_DEFINED_SCRIPTS = [B1,B2,B3,B4]
-#     #Undefined Scripts = [C1,C2,C3,C4]
-#     SCRIPT_NUMBER = random.randint(0,5)
-#     SCRIPTS = (A1,A2,A3,A4,B1,B2B3,B4)#C1,C2,C3,C4)
 #     CHOSEN_SCRIPT = SCRIPTS[SCRIPT_NUMBER]
 #     if "One" in CHOSEN_SCRIPT:
 #         CURRENTTAXINCOME = TAXINCOME
@@ -167,10 +119,6 @@ cout << "Middnight(12pm)" << endl;
 #         EPIDEMIC = True                         
 #         return INFO
 
-# 
-# Happiness, people generation. happiness based on the closeness of each economy product to its ideal base
-# of 1
-# #vat-happiness.py
 # #Making the program accessible with sleep, a choice of continuing the citizen simulation,
 # #Citizen simulation will print the amount of years of simulation, each iteration
 # #Is one year.It can also let you create new citizens. Each citizen group should have their own name
