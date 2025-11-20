@@ -1,3 +1,0 @@
-source of all lessons:
-
-https://cplusplus.com/doc/tutorial
